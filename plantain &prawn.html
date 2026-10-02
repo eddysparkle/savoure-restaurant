@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pen</title>
+  </head>
+  <body>
+
+
+
+
+    <header>
+  <h1>savouré</h1>
+  <a href="index.html#menu">← Back to Menu</a>
+</header>
+
+<main>
+
+  <section>
+    <img
+      src="https://images.pexels.com/photos/32425692/pexels-photo-32425692.jpeg"
+      alt="Plantain and prawns"
+      style="width: 250px; height: 150px; object-fit: cover;"
+    >
+
+    <p>Seafood</p>
+
+    <h2>Plantain & Prawns</h2>
+
+    <p>
+      Sweet fried plantain served with beautifully seasoned prawns.
+    </p>
+
+    <h3>$22</h3>
+  </section>
+
+  <section>
+    <h2>Place Your Order</h2>
+
+    <form>
+
+      <label for="quantity">Quantity</label>
+      <input
+        type="number"
+        id="quantity"
+        name="quantity"
+        value="1"
+        min="1"
+      >
+
+      <label for="customer-name">Your Name</label>
+      <input
+        type="text"
+        id="customer-name"
+        name="customer-name"
+        required
+      >
+
+      <label for="customer-phone">Phone Number</label>
+      <input
+        type="tel"
+        id="customer-phone"
+        name="customer-phone"
+        required
+      >
+
+      <p>Order Type</p>
+
+      <label>
+        <input
+          type="radio"
+          name="order-type"
+          value="delivery"
+          checked
+        >
+        Delivery
+      </label>
+
+      <label>
+        <input
+          type="radio"
+          name="order-type"
+          value="pickup"
+        >
+        Pickup
+      </label>
+
+      <label for="address">Delivery Address</label>
+
+      <textarea
+        id="address"
+        name="address"
+        placeholder="Enter your delivery address"
+        required
+      ></textarea>
+
+      <label for="special-request">
+        Special Instructions
+      </label>
+
+      <textarea
+        id="special-request"
+        name="special-request"
+        placeholder="Any special requests?"
+      ></textarea>
+
+      <div>
+        <h3>Order Summary</h3>
+
+        <p>Plantain & Prawns × 1</p>
+
+        <p>
+          <strong>Total: $22</strong>
+        </p>
+      </div>
+
+      <button type="submit">
+        Place Order
+      </button>
+
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Savouré. All rights reserved.</p>
+</footer>
+
+
+
+    
+    <script src="./script.js"></script>
+  </body>
+</html>
