@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Jollof Rice & Grilled Chicken | Savouré</title>
+  </head>
+  <body>
+
+
+
+  <header>
+    <h1>savouré</h1>
+
+    <a href="index.html#menu">← Back to Menu</a>
+  </header>
+
+
+  <main>
+
+    <!-- ================= FOOD DETAILS ================= -->
+
+    <section>
+
+      <img
+        src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=1000&q=80"
+        alt="Jollof rice with grilled chicken"
+      >
+
+      <p>
+        Main Course
+      </p>
+
+      <h2>
+        Jollof Rice &amp; Grilled Chicken
+      </h2>
+
+      <p>
+        Smoky Nigerian jollof rice served with tender
+        grilled chicken.
+      </p>
+
+      <h3>
+        $25
+      </h3>
+
+    </section>
+
+
+    <!-- ================= ORDER FORM ================= -->
+
+    <section>
+
+      <h2>
+        Place Your Order
+      </h2>
+
+      <form>
+
+
+        <!-- QUANTITY -->
+
+        <div>
+
+          <label for="quantity">
+            Quantity
+          </label>
+
+          <input
+            type="number"
+            id="quantity"
+            name="quantity"
+            value="1"
+            min="1"
+          >
+
+        </div>
+
+
+        <!-- CUSTOMER NAME -->
+
+        <div>
+
+          <label for="customer-name">
+            Your Name
+          </label>
+
+          <input
+            type="text"
+            id="customer-name"
+            name="customer-name"
+            placeholder="Enter your name"
+            required
+          >
+
+        </div>
+
+
+        <!-- PHONE -->
+
+        <div>
+
+          <label for="customer-phone">
+            Phone Number
+          </label>
+
+          <input
+            type="tel"
+            id="customer-phone"
+            name="customer-phone"
+            placeholder="Enter your phone number"
+            required
+          >
+
+        </div>
+
+
+        <!-- ORDER TYPE -->
+
+        <fieldset>
+
+          <legend>
+            Order Type
+          </legend>
+
+          <label>
+            <input
+              type="radio"
+              name="order-type"
+              value="delivery"
+              checked
+            >
+            Delivery
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="order-type"
+              value="pickup"
+            >
+            Pickup
+          </label>
+
+        </fieldset>
+
+
+        <!-- ADDRESS -->
+
+        <div>
+
+          <label for="address">
+            Delivery Address
+          </label>
+
+          <textarea
+            id="address"
+            name="address"
+            placeholder="Enter your delivery address"
+          ></textarea>
+
+        </div>
+
+
+        <!-- SPECIAL REQUEST -->
+
+        <div>
+
+          <label for="special-request">
+            Special Instructions
+          </label>
+
+          <textarea
+            id="special-request"
+            name="special-request"
+            placeholder="Any special requests?"
+          ></textarea>
+
+        </div>
+
+
+        <!-- ORDER SUMMARY -->
+
+        <div>
+
+          <h3>
+            Order Summary
+          </h3>
+
+          <p>
+            Jollof Rice &amp; Grilled Chicken × 1
+          </p>
+
+          <p>
+            Total: $25
+          </p>
+
+        </div>
+
+
+        <!-- BUTTON -->
+
+        <button type="submit">
+          Place Order
+        </button>
+
+
+      </form>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <p>
+      &copy; 2026 Savouré. All rights reserved.
+    </p>
+
+  </footer>
+
+
+    
+
+    <script src="./script.js"></script>
+  </body>
+</html>
