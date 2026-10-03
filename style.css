@@ -2300,3 +2300,25 @@ header {
 
 
 
+
+/* Center the Explore Our Menu button */
+#home {
+  align-items: center;          /* centers all hero content */
+  text-align: center;           /* centers the text */
+}
+
+#home h2,
+.hero-description {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-button {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 28px;
+}
+
+
+
