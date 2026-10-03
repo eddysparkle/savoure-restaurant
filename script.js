@@ -85,20 +85,29 @@ if (menuCards.length > 0) {
   });
 }
 
+
+
+
+
+
+
+
+
+
+
+
 // =========================
 // QUANTITY → ORDER SUMMARY (Dish pages)
 // =========================
 const quantityInput = document.getElementById("quantity");
+const summaryText = document.getElementById("summary-text");
+const summaryTotal = document.getElementById("summary-total");
 
-if (quantityInput) {
-  const summaryBox = document.querySelector("form > div:last-of-type");
-  const summaryText = summaryBox ? summaryBox.querySelector("p:first-of-type") : null;
-  const totalText = summaryBox ? summaryBox.querySelector("p:last-of-type") : null;
-
+if (quantityInput && summaryText && summaryTotal) {
   const dishTitle = document.querySelector("main section:first-child h2");
   const priceElement = document.querySelector("main section:first-child h3");
 
-  if (summaryText && totalText && dishTitle && priceElement) {
+  if (dishTitle && priceElement) {
     const dishName = dishTitle.textContent.trim();
     const basePrice = parseFloat(priceElement.textContent.replace("$", "").trim());
 
@@ -106,11 +115,20 @@ if (quantityInput) {
       const qty = parseInt(quantityInput.value) || 1;
       const total = basePrice * qty;
 
-      summaryText.textContent = `${dishName} × ${qty}`;
-      totalText.textContent = `Total: $${total}`;
+      summaryText.textContent = dishName + " × " + qty;
+      summaryTotal.textContent = "Total: $" + total;
     }
 
     updateSummary();
     quantityInput.addEventListener("input", updateSummary);
+    quantityInput.addEventListener("change", updateSummary);
   }
 }
+
+
+
+
+
+
+
+
