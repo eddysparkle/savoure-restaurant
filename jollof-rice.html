@@ -1,230 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Jollof Rice & Grilled Chicken | Savouré</title>
-  </head>
-  <body>
-
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Jollof Rice & Grilled Chicken | Savouré</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
 
   <header>
-    <a href="index.html">
-  <h1>savouré</h1>
-</a>
-
+    <a href="index.html"><h1>savouré</h1></a>
     <a href="index.html#menu">← Back to Menu</a>
   </header>
 
-
   <main>
 
-    <!-- ================= FOOD DETAILS ================= -->
-
     <section>
-
       <img
         src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=1000&q=80"
         alt="Jollof rice with grilled chicken"
       >
-
-      <p>
-        Main Course
-      </p>
-
-      <h2>
-        Jollof Rice &amp; Grilled Chicken
-      </h2>
-
-      <p>
-        Smoky Nigerian jollof rice served with tender
-        grilled chicken.
-      </p>
-
-      <h3>
-        $25
-      </h3>
-
+      <p>Main Course</p>
+      <h2>Jollof Rice & Grilled Chicken</h2>
+      <p>Smoky Nigerian jollof rice served with tender grilled chicken.</p>
+      <h3>$25</h3>
     </section>
 
+    <section id="order-section">
+      <h2>Place Your Order</h2>
 
-    <!-- ================= ORDER FORM ================= -->
+      <form id="order-form" action="https://formspree.io/f/xvzqappg" method="POST">
 
-    <section>
-
-      <h2>
-        Place Your Order
-      </h2>
-
-      <form>
-
-
-        <!-- QUANTITY -->
+        <input type="hidden" name="dish" value="Jollof Rice & Grilled Chicken">
 
         <div>
-
-          <label for="quantity">
-            Quantity
-          </label>
-
-          <input
-            type="number"
-            id="quantity"
-            name="quantity"
-            value="1"
-            min="1"
-          >
-
+          <label for="quantity">Quantity</label>
+          <input type="number" id="quantity" name="quantity" value="1" min="1" required>
         </div>
-
-
-        <!-- CUSTOMER NAME -->
 
         <div>
-
-          <label for="customer-name">
-            Your Name
-          </label>
-
-          <input
-            type="text"
-            id="customer-name"
-            name="customer-name"
-            placeholder="Enter your name"
-            required
-          >
-
+          <label for="customer-name">Your Name</label>
+          <input type="text" id="customer-name" name="customer-name" placeholder="Enter your name" required>
         </div>
-
-
-        <!-- PHONE -->
 
         <div>
-
-          <label for="customer-phone">
-            Phone Number
-          </label>
-
-          <input
-            type="tel"
-            id="customer-phone"
-            name="customer-phone"
-            placeholder="Enter your phone number"
-            required
-          >
-
+          <label for="customer-phone">Phone Number</label>
+          <input type="tel" id="customer-phone" name="customer-phone" placeholder="Enter your phone number" required>
         </div>
-
-
-        <!-- ORDER TYPE -->
 
         <fieldset>
-
-          <legend>
-            Order Type
-          </legend>
-
+          <legend>Order Type</legend>
           <label>
-            <input
-              type="radio"
-              name="order-type"
-              value="delivery"
-              checked
-            >
+            <input type="radio" name="order-type" value="delivery" checked>
             Delivery
           </label>
-
           <label>
-            <input
-              type="radio"
-              name="order-type"
-              value="pickup"
-            >
+            <input type="radio" name="order-type" value="pickup">
             Pickup
           </label>
-
         </fieldset>
 
-
-        <!-- ADDRESS -->
-
-        <div>
-
-          <label for="address">
-            Delivery Address
-          </label>
-
-          <textarea
-            id="address"
-            name="address"
-            placeholder="Enter your delivery address"
-          ></textarea>
-
+        <div id="address-field">
+          <label for="address">Delivery Address</label>
+          <textarea id="address" name="address" placeholder="Enter your delivery address"></textarea>
         </div>
 
-
-        <!-- SPECIAL REQUEST -->
-
         <div>
-
-          <label for="special-request">
-            Special Instructions
-          </label>
-
-          <textarea
-            id="special-request"
-            name="special-request"
-            placeholder="Any special requests?"
-          ></textarea>
-
+          <label for="special-request">Special Instructions</label>
+          <textarea id="special-request" name="special-request" placeholder="Any special requests?"></textarea>
         </div>
 
+        <div>
+          <h3>Order Summary</h3>
+          <p id="summary-text">Jollof Rice & Grilled Chicken × 1</p>
+          <p id="summary-total">Total: $25</p>
+        </div>
 
-
-
-
-        
-<!-- ORDER SUMMARY -->
-<div>
-  <h3>Order Summary</h3>
-  <p id="summary-text">Jollof Rice & Grilled Chicken × 1</p>
-  <p id="summary-total">Total: $25</p>
-</div>
-
-
-
-
-
-        
-
-
-        <!-- BUTTON -->
-
-        <button type="submit">
-          Place Order
-        </button>
-
-
+        <button type="submit">Place Order</button>
       </form>
-
     </section>
+
+    <div id="order-confirmation" style="display: none;">
+      <div class="confirmation-box">
+        <p class="confirmation-label">ORDER RECEIVED</p>
+        <div class="confirmation-icon">✓</div>
+        <h2>Thank You!</h2>
+        <p class="confirmation-message">
+          Your order for Jollof Rice & Grilled Chicken has been received by Savouré.
+          We will contact you shortly to confirm.
+        </p>
+        <a href="index.html#menu" id="back-to-menu">Back to Menu</a>
+      </div>
+    </div>
 
   </main>
 
-
   <footer>
-
-    <p>
-      &copy; 2026 Savouré. All rights reserved.
-    </p>
-
+    <p>&copy; 2026 Savouré. All rights reserved.</p>
   </footer>
 
-
-    
-
-    <script src="./script.js"></script>
-  </body>
+  <script src="./script.js"></script>
+</body>
 </html>
