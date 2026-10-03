@@ -1057,3 +1057,1013 @@ footer {
 
 
 
+
+
+/* =========================
+   jollof-rice
+========================= */
+
+/* ===============================
+   SAVOURÉ ORDER PAGE
+   LUXURY RESTAURANT STYLING
+================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: #080808;
+  color: #f5f1e8;
+  line-height: 1.6;
+}
+
+
+/* ===============================
+   HEADER
+================================ */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 7%;
+  border-bottom: 1px solid #2c2415;
+  background: #080808;
+}
+
+header h1 {
+  font-size: 2rem;
+  letter-spacing: 4px;
+  color: #d4af37;
+  text-transform: lowercase;
+}
+
+header a {
+  color: #d4af37;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: 0.3s ease;
+}
+
+header a:hover {
+  color: #fff;
+}
+
+
+/* ===============================
+   MAIN
+================================ */
+
+main {
+  width: min(1100px, 90%);
+  margin: 0 auto;
+  padding: 70px 0;
+}
+
+
+/* ===============================
+   FOOD SECTION
+================================ */
+
+main > section:first-child {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+main > section:first-child img {
+  width: 100%;
+  max-width: 650px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto 35px;
+}
+
+main > section:first-child p:first-of-type {
+  color: #d4af37;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.75rem;
+  margin-bottom: 12px;
+}
+
+main > section:first-child h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.15;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+main > section:first-child p:nth-of-type(2) {
+  max-width: 600px;
+  margin: 0 auto 20px;
+  color: #bdb7aa;
+  font-size: 1rem;
+}
+
+main > section:first-child h3 {
+  color: #d4af37;
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+
+/* ===============================
+   ORDER SECTION
+================================ */
+
+main > section:nth-child(2) {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #101010;
+  padding: 45px;
+  border: 1px solid #2c2415;
+  border-radius: 6px;
+}
+
+main > section:nth-child(2) > h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 35px;
+}
+
+
+/* ===============================
+   FORM
+================================ */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label,
+legend {
+  color: #d4af37;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+
+/* ===============================
+   INPUTS
+================================ */
+
+input,
+textarea {
+  width: 100%;
+  padding: 14px 15px;
+  background: #080808;
+  color: #f5f1e8;
+  border: 1px solid #3a3326;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #d4af37;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #777;
+}
+
+
+/* ===============================
+   FIELDSET
+================================ */
+
+fieldset {
+  border: 1px solid #3a3326;
+  padding: 20px;
+  display: flex;
+  gap: 25px;
+}
+
+fieldset label {
+  color: #d8d3c8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+fieldset input {
+  width: auto;
+  accent-color: #d4af37;
+}
+
+
+/* ===============================
+   ORDER SUMMARY
+================================ */
+
+form > div:last-of-type {
+  border-top: 1px solid #3a3326;
+  border-bottom: 1px solid #3a3326;
+  padding: 25px 0;
+}
+
+form > div:last-of-type h3 {
+  color: #d4af37;
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
+form > div:last-of-type p {
+  color: #c9c4b9;
+}
+
+
+/* ===============================
+   BUTTON
+================================ */
+
+button {
+  padding: 16px 25px;
+  background: #d4af37;
+  color: #080808;
+  border: none;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: #f0cf55;
+  transform: translateY(-2px);
+}
+
+
+/* ===============================
+   FOOTER
+================================ */
+
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 1px solid #2c2415;
+  color: #777;
+  font-size: 0.85rem;
+}
+
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+  header {
+    padding: 20px 5%;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  main {
+    width: 92%;
+    padding: 45px 0;
+  }
+
+  main > section:first-child {
+    margin-bottom: 45px;
+  }
+
+  main > section:first-child img {
+    height: 250px;
+  }
+
+  main > section:first-child h2 {
+    font-size: 2rem;
+  }
+
+  main > section:nth-child(2) {
+    padding: 25px 20px;
+  }
+
+  main > section:nth-child(2) > h2 {
+    font-size: 1.6rem;
+  }
+
+  fieldset {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+}
+
+
+/* ===============================
+   ORDER CONFIRMATION
+================================ */
+
+#order-confirmation {
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.confirmation-box {
+  background: #111;
+  border: 1px solid #3a2f18;
+  padding: 50px 30px;
+}
+
+.confirmation-label {
+  color: #d4af37;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.confirmation-icon {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #d4af37;
+  border-radius: 50%;
+
+  color: #d4af37;
+  font-size: 2rem;
+}
+
+.confirmation-box h2 {
+  font-size: 2.5rem;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.confirmation-message {
+  color: #aaa;
+  margin-bottom: 35px;
+}
+
+.confirmation-details {
+  text-align: left;
+  border-top: 1px solid #3a3326;
+  border-bottom: 1px solid #3a3326;
+  padding: 25px 0;
+  margin-bottom: 25px;
+}
+
+.confirmation-details h3 {
+  color: #d4af37;
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+.confirmation-details p {
+  color: #ddd;
+  margin: 8px 0;
+}
+
+.confirmation-details p:last-child {
+  color: #d4af37;
+  font-size: 1.2rem;
+}
+
+.confirmation-note {
+  color: #999;
+  margin-bottom: 30px;
+}
+
+#back-to-menu {
+  padding: 14px 28px;
+  background: #d4af37;
+  color: #080808;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+#back-to-menu:hover {
+  background: #e6c34a;
+}
+
+
+
+
+
+
+
+
+
+/* ===============================
+   plantain-prawm
+================================ */
+
+
+
+
+
+
+/* GENERAL */
+body {
+  margin: 0;
+  padding: 0;
+  background: #080808;
+  color: #f5f1e8;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+/* HEADER */
+header {
+  padding: 25px;
+  border-bottom: 1px solid #332b1b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  color: #d4af37;
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+header a {
+  color: #d4af37;
+  text-decoration: none;
+}
+
+/* MAIN */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+section {
+  background: #111;
+  border: 1px solid #332b1b;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+/* FOOD IMAGE */
+section:first-child img {
+  display: block;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* FOOD DETAILS */
+section:first-child p:first-of-type {
+  color: #d4af37;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+
+section:first-child h2 {
+  color: #f5f1e8;
+  margin-bottom: 10px;
+}
+
+section:first-child h3 {
+  color: #d4af37;
+  font-size: 24px;
+}
+
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form label {
+  margin-top: 8px;
+  color: #f5f1e8;
+}
+
+form input[type="text"],
+form input[type="tel"],
+form input[type="number"],
+form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  background: #080808;
+  color: #f5f1e8;
+  border: 1px solid #3a3326;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+/* RADIO BUTTON AREA */
+form p {
+  margin-top: 15px;
+  margin-bottom: 2px;
+}
+
+form label:has(input[type="radio"]) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* RADIO BUTTONS */
+input[type="radio"] {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  accent-color: #d4af37;
+}
+
+/* TEXTAREAS */
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* ORDER SUMMARY */
+form > div:last-of-type {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #3a3326;
+  background: #0c0c0c;
+}
+
+form > div:last-of-type h3 {
+  color: #d4af37;
+  margin-top: 0;
+}
+
+/* BUTTON */
+button {
+  margin-top: 15px;
+  padding: 14px 20px;
+  border: 1px solid #d4af37;
+  background: #d4af37;
+  color: #080808;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background: #f0c94a;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 25px;
+  border-top: 1px solid #332b1b;
+  color: #aaa;
+  font-size: 14px;
+}
+
+/* CONFIRMATION */
+#order-confirmation {
+  background: #111;
+  border: 1px solid #332b1b;
+  padding: 40px 25px;
+  text-align: center;
+}
+
+.confirmation-box {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.confirmation-icon {
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 20px;
+  border: 2px solid #d4af37;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d4af37;
+  font-size: 28px;
+}
+
+.confirmation-box h2 {
+  color: #d4af37;
+}
+
+.confirmation-details {
+  margin: 25px 0;
+  padding: 20px;
+  border: 1px solid #3a3326;
+  text-align: left;
+}
+
+.confirmation-note {
+  color: #aaa;
+}
+
+#back-to-menu {
+  margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ===============================
+   Suya
+================================ */
+
+
+
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #080808;
+  color: #f5f1e8;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+/* HEADER */
+
+header {
+  padding: 20px;
+  border-bottom: 1px solid #332b1b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  color: #d4af37;
+  letter-spacing: 4px;
+  font-size: 1.8rem;
+}
+
+header a {
+  color: #d4af37;
+  text-decoration: none;
+}
+
+
+/* MAIN */
+
+main {
+  width: 90%;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+
+/* FOOD */
+
+main > section:first-child {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+main > section:first-child img {
+  width: 100%;
+  max-width: 420px;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 25px;
+  border-radius: 4px;
+}
+
+main > section:first-child p:first-of-type {
+  color: #d4af37;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+}
+
+main > section:first-child h2 {
+  font-size: 2.2rem;
+  font-weight: normal;
+  margin: 10px 0;
+}
+
+main > section:first-child p:nth-of-type(2) {
+  color: #aaa;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+main > section:first-child h3 {
+  color: #d4af37;
+  font-size: 1.5rem;
+}
+
+
+/* ORDER BOX */
+
+main > section:nth-child(2) {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 30px;
+  background: #111;
+  border: 1px solid #332b1b;
+}
+
+main > section:nth-child(2) h2 {
+  text-align: center;
+  font-weight: normal;
+  margin-top: 0;
+}
+
+
+/* FORM */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+label,
+legend {
+  color: #d4af37;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  background: #080808;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 3px;
+  font-family: inherit;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #d4af37;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+
+/* ORDER TYPE */
+
+fieldset {
+  border: 1px solid #444;
+  padding: 15px;
+}
+
+fieldset label {
+  color: #ddd;
+  margin-right: 20px;
+}
+
+fieldset input {
+  width: auto;
+}
+
+
+/* SUMMARY */
+
+form > div:last-of-type {
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+  padding: 20px 0;
+}
+
+form > div:last-of-type h3 {
+  color: #d4af37;
+}
+
+
+/* BUTTON */
+
+button {
+  padding: 14px;
+  background: #d4af37;
+  color: #080808;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+button:hover {
+  background: #e6c34a;
+}
+
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  padding: 25px;
+  border-top: 1px solid #332b1b;
+  color: #777;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  header {
+    padding: 18px;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  main {
+    width: 92%;
+    padding: 35px 0;
+  }
+
+  main > section:first-child img {
+    height: 210px;
+  }
+
+  main > section:first-child h2 {
+    font-size: 1.8rem;
+  }
+
+  main > section:nth-child(2) {
+    padding: 20px;
+  }
+
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+
+/* ===============================
+   ORDER CONFIRMATION
+================================ */
+
+#order-confirmation {
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.confirmation-box {
+  background: #111;
+  border: 1px solid #3a2f18;
+  padding: 50px 30px;
+}
+
+.confirmation-label {
+  color: #d4af37;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.confirmation-icon {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #d4af37;
+  border-radius: 50%;
+
+  color: #d4af37;
+  font-size: 2rem;
+}
+
+.confirmation-box h2 {
+  font-size: 2.5rem;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.confirmation-message {
+  color: #aaa;
+  margin-bottom: 35px;
+}
+
+.confirmation-details {
+  text-align: left;
+  border-top: 1px solid #3a3326;
+  border-bottom: 1px solid #3a3326;
+  padding: 25px 0;
+  margin-bottom: 25px;
+}
+
+.confirmation-details h3 {
+  color: #d4af37;
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+.confirmation-details p {
+  color: #ddd;
+  margin: 8px 0;
+}
+
+.confirmation-details p:last-child {
+  color: #d4af37;
+  font-size: 1.2rem;
+}
+
+.confirmation-note {
+  color: #999;
+  margin-bottom: 30px;
+}
+
+#back-to-menu {
+  padding: 14px 28px;
+  background: #d4af37;
+  color: #080808;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+#back-to-menu:hover {
+  background: #e6c34a;
+}
+   
+
+
+
+
+
