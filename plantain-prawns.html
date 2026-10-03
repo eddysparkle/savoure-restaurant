@@ -1,145 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pen</title>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Plantain & Prawns | Savouré</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
 
+  <header>
+    <a href="index.html"><h1>savouré</h1></a>
+    <a href="index.html#menu">← Back to Menu</a>
+  </header>
 
+  <main>
 
-
-    <header>
-  <a href="index.html">
-  <h1>savouré</h1>
-</a>
-  <a href="index.html#menu">← Back to Menu</a>
-</header>
-
-<main>
-
-  <section>
-    <img
-      src="https://images.pexels.com/photos/32425692/pexels-photo-32425692.jpeg"
-      alt="Plantain and prawns"
-      style="width: 250px; height: 150px; object-fit: cover;"
-    >
-
-    <p>Seafood</p>
-
-    <h2>Plantain & Prawns</h2>
-
-    <p>
-      Sweet fried plantain served with beautifully seasoned prawns.
-    </p>
-
-    <h3>$22</h3>
-  </section>
-
-  <section>
-    <h2>Place Your Order</h2>
-
-    <form>
-
-      <label for="quantity">Quantity</label>
-      <input
-        type="number"
-        id="quantity"
-        name="quantity"
-        value="1"
-        min="1"
+    <section>
+      <img
+        src="https://images.pexels.com/photos/32425692/pexels-photo-32425692.jpeg"
+        alt="Plantain and prawns"
       >
+      <p>Seafood</p>
+      <h2>Plantain & Prawns</h2>
+      <p>Sweet fried plantain served with beautifully seasoned prawns.</p>
+      <h3>$22</h3>
+    </section>
 
-      <label for="customer-name">Your Name</label>
-      <input
-        type="text"
-        id="customer-name"
-        name="customer-name"
-        required
-      >
+    <section id="order-section">
+      <h2>Place Your Order</h2>
 
-      <label for="customer-phone">Phone Number</label>
-      <input
-        type="tel"
-        id="customer-phone"
-        name="customer-phone"
-        required
-      >
+      <form id="order-form" action="https://formspree.io/f/xvzqappg" method="POST">
 
-      <p>Order Type</p>
+        <input type="hidden" name="dish" value="Plantain & Prawns">
 
-      <label>
-        <input
-          type="radio"
-          name="order-type"
-          value="delivery"
-          checked
-        >
-        Delivery
-      </label>
+        <div>
+          <label for="quantity">Quantity</label>
+          <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+        </div>
 
-      <label>
-        <input
-          type="radio"
-          name="order-type"
-          value="pickup"
-        >
-        Pickup
-      </label>
+        <div>
+          <label for="customer-name">Your Name</label>
+          <input type="text" id="customer-name" name="customer-name" placeholder="Enter your name" required>
+        </div>
 
-      <label for="address">Delivery Address</label>
+        <div>
+          <label for="customer-phone">Phone Number</label>
+          <input type="tel" id="customer-phone" name="customer-phone" placeholder="Enter your phone number" required>
+        </div>
 
-      <textarea
-        id="address"
-        name="address"
-        placeholder="Enter your delivery address"
-        required
-      ></textarea>
+        <fieldset>
+          <legend>Order Type</legend>
+          <label>
+            <input type="radio" name="order-type" value="delivery" checked>
+            Delivery
+          </label>
+          <label>
+            <input type="radio" name="order-type" value="pickup">
+            Pickup
+          </label>
+        </fieldset>
 
-      <label for="special-request">
-        Special Instructions
-      </label>
+        <div id="address-field">
+          <label for="address">Delivery Address</label>
+          <textarea id="address" name="address" placeholder="Enter your delivery address"></textarea>
+        </div>
 
-      <textarea
-        id="special-request"
-        name="special-request"
-        placeholder="Any special requests?"
-      ></textarea>
+        <div>
+          <label for="special-request">Special Instructions</label>
+          <textarea id="special-request" name="special-request" placeholder="Any special requests?"></textarea>
+        </div>
 
+        <div>
+          <h3>Order Summary</h3>
+          <p id="summary-text">Plantain & Prawns × 1</p>
+          <p id="summary-total">Total: $22</p>
+        </div>
 
+        <button type="submit">Place Order</button>
+      </form>
+    </section>
 
+    <div id="order-confirmation" style="display: none;">
+      <div class="confirmation-box">
+        <p class="confirmation-label">ORDER RECEIVED</p>
+        <div class="confirmation-icon">✓</div>
+        <h2>Thank You!</h2>
+        <p class="confirmation-message">
+          Your order for Plantain & Prawns has been received by Savouré.
+          We will contact you shortly to confirm.
+        </p>
+        <a href="index.html#menu" id="back-to-menu">Back to Menu</a>
+      </div>
+    </div>
 
+  </main>
 
-      <!-- ORDER SUMMARY -->
-<div>
-  <h3>Order Summary</h3>
-  <p id="summary-text">Plantain & Prawns × 1</p>
-  <p id="summary-total">Total: $22</p>
-</div>
+  <footer>
+    <p>&copy; 2026 Savouré. All rights reserved.</p>
+  </footer>
 
-
-
-
-      
-
-      <button type="submit">
-        Place Order
-      </button>
-
-    </form>
-  </section>
-
-</main>
-
-<footer>
-  <p>&copy; 2026 Savouré. All rights reserved.</p>
-</footer>
-
-
-
-    
-    <script src="./script.js"></script>
-  </body>
+  <script src="./script.js"></script>
+</body>
 </html>
