@@ -2601,3 +2601,25 @@ header {
   }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+/* Fix: make menu cards visible again */
+.menu-card {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+.menu-card.card-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
