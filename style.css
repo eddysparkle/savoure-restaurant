@@ -2352,3 +2352,140 @@ header {
   }
 }
 
+
+
+
+
+
+
+/* =====================================================
+   MOBILE FIX – PASTE AT THE VERY BOTTOM
+===================================================== */
+
+@media (max-width: 768px) {
+
+  /* Header */
+  header {
+    padding: 16px 20px !important;
+  }
+
+  header h1 {
+    font-size: 22px !important;
+  }
+
+  /* Hero */
+  #home {
+    margin: 12px 12px 0 !important;
+    padding: 50px 22px !important;
+    min-height: 55vh !important;
+    border-radius: 14px !important;
+    text-align: center;
+  }
+
+  #home h2 {
+    font-size: 32px !important;
+    line-height: 1.15 !important;
+    margin: 12px 0 14px !important;
+  }
+
+  .hero-label {
+    font-size: 11px !important;
+  }
+
+  .hero-description {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    max-width: 100% !important;
+  }
+
+  .hero-button {
+    display: inline-block !important;
+    width: auto !important;
+    max-width: 100%;
+    margin-top: 22px !important;
+    padding: 12px 22px !important;
+    font-size: 15px !important;
+  }
+
+  /* Menu section */
+  #menu {
+    padding: 50px 16px 40px !important;
+  }
+
+  .section-heading {
+    margin-bottom: 28px !important;
+    text-align: left !important;
+  }
+
+  .section-heading h2 {
+    font-size: 32px !important;
+  }
+
+  .section-heading > p:last-child {
+    font-size: 15px !important;
+  }
+
+  /* Menu grid – one column */
+  .menu-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  /* Cards – normal mobile height */
+  .menu-card {
+    height: 380px !important;
+    border-radius: 14px !important;
+  }
+
+  .menu-content h3 {
+    font-size: 20px !important;
+  }
+
+  .menu-content p {
+    font-size: 14px !important;
+  }
+
+  /* Custom Order card */
+  .custom-order-card {
+    height: auto !important;
+    min-height: 280px !important;
+    padding: 28px 24px !important;
+    border-radius: 14px !important;
+  }
+
+  .custom-order-card h3 {
+    font-size: 24px !important;
+  }
+
+  /* About */
+  #about {
+    padding: 50px 16px !important;
+  }
+
+  .about-content h2 {
+    font-size: 30px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Contact */
+  #contact {
+    padding: 50px 16px 70px !important;
+  }
+
+  #contact h2 {
+    font-size: 32px !important;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px !important; /* prevents iOS zoom */
+  }
+
+  /* Footer */
+  footer {
+    padding: 20px 16px !important;
+    font-size: 13px !important;
+  }
+}
+
