@@ -2067,3 +2067,39 @@ footer {
 
 
 
+
+
+
+
+
+
+
+
+
+
+/* ========== Better spacing for Order Summary ========== */
+
+form {
+  gap: 18px; /* increases space between all form fields */
+}
+
+/* Order Summary box */
+form > div:last-of-type {
+  margin-top: 30px !important;
+  margin-bottom: 10px;
+  padding: 25px 28px !important;
+}
+
+form > div:last-of-type h3 {
+  margin-bottom: 12px;
+}
+
+form > div:last-of-type p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+
+
+
+
