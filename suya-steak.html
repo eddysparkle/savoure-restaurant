@@ -1,254 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>suya steak</title>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Suya Steak | Savouré</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
 
+  <header>
+    <a href="index.html"><h1>savouré</h1></a>
+    <a href="index.html#menu">← Back to Menu</a>
+  </header>
 
+  <main>
 
+    <section>
+      <img
+        src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80"
+        alt="Premium grilled suya steak"
+      >
+      <p>Chef's Special</p>
+      <h2>Suya Steak</h2>
+      <p>Premium grilled steak seasoned with traditional Nigerian suya spices.</p>
+      <h3>$30</h3>
+    </section>
 
+    <section id="order-section">
+      <h2>Place Your Order</h2>
 
+      <form id="order-form" action="https://formspree.io/f/xvzqappg" method="POST">
 
-<header>
+        <input type="hidden" name="dish" value="Suya Steak">
 
-  <a href="index.html">
-  <h1>savouré</h1>
-</a>
+        <div>
+          <label for="quantity">Quantity</label>
+          <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+        </div>
 
-  <a href="index.html#menu">← Back to Menu</a>
-    
+        <div>
+          <label for="customer-name">Your Name</label>
+          <input type="text" id="customer-name" name="customer-name" placeholder="Enter your name" required>
+        </div>
 
-</header>
+        <div>
+          <label for="customer-phone">Phone Number</label>
+          <input type="tel" id="customer-phone" name="customer-phone" placeholder="Enter your phone number" required>
+        </div>
 
+        <fieldset>
+          <legend>Order Type</legend>
+          <label>
+            <input type="radio" name="order-type" value="delivery" checked>
+            Delivery
+          </label>
+          <label>
+            <input type="radio" name="order-type" value="pickup">
+            Pickup
+          </label>
+        </fieldset>
 
-<main>
+        <div id="address-field">
+          <label for="address">Delivery Address</label>
+          <textarea id="address" name="address" placeholder="Enter your delivery address"></textarea>
+        </div>
 
-  <!-- ================= FOOD DETAILS ================= -->
+        <div>
+          <label for="special-request">Special Instructions</label>
+          <textarea id="special-request" name="special-request" placeholder="Any special requests?"></textarea>
+        </div>
 
-  <section>
+        <div>
+          <h3>Order Summary</h3>
+          <p id="summary-text">Suya Steak × 1</p>
+          <p id="summary-total">Total: $30</p>
+        </div>
 
-    <img
-      src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80"
-      alt="Premium grilled suya steak"
-      style="width: 250px; height: 150px; object-fit: cover;"
-    >
+        <button type="submit">Place Order</button>
+      </form>
+    </section>
 
-    <p>
-      Chef's Special
-    </p>
-
-    <h2>
-      Suya Steak
-    </h2>
-
-    <p>
-      Premium grilled steak seasoned with
-      traditional Nigerian suya spices.
-    </p>
-
-    <h3>
-      $30
-    </h3>
-
-  </section>
-
-
-  <!-- ================= ORDER FORM ================= -->
-
-  <section>
-
-    <h2>
-      Place Your Order
-    </h2>
-
-
-    <form>
-
-
-      <!-- QUANTITY -->
-
-      <div>
-
-        <label for="quantity">
-          Quantity
-        </label>
-
-        <input
-          type="number"
-          id="quantity"
-          name="quantity"
-          value="1"
-          min="1"
-        >
-
+    <div id="order-confirmation" style="display: none;">
+      <div class="confirmation-box">
+        <p class="confirmation-label">ORDER RECEIVED</p>
+        <div class="confirmation-icon">✓</div>
+        <h2>Thank You!</h2>
+        <p class="confirmation-message">
+          Your order for Suya Steak has been received by Savouré.
+          We will contact you shortly to confirm.
+        </p>
+        <a href="index.html#menu" id="back-to-menu">Back to Menu</a>
       </div>
+    </div>
 
+  </main>
 
-      <!-- CUSTOMER NAME -->
+  <footer>
+    <p>&copy; 2026 Savouré. All rights reserved.</p>
+  </footer>
 
-      <div>
-
-        <label for="customer-name">
-          Your Name
-        </label>
-
-        <input
-          type="text"
-          id="customer-name"
-          name="customer-name"
-          placeholder="Enter your name"
-          required
-        >
-
-      </div>
-
-
-      <!-- PHONE -->
-
-      <div>
-
-        <label for="customer-phone">
-          Phone Number
-        </label>
-
-        <input
-          type="tel"
-          id="customer-phone"
-          name="customer-phone"
-          placeholder="Enter your phone number"
-          required
-        >
-
-      </div>
-
-
-      <!-- ORDER TYPE -->
-
-      <fieldset>
-
-        <legend>
-          Order Type
-        </legend>
-
-        <label>
-
-          <input
-            type="radio"
-            name="order-type"
-            value="delivery"
-            checked
-          >
-
-          Delivery
-
-        </label>
-
-
-        <label>
-
-          <input
-            type="radio"
-            name="order-type"
-            value="pickup"
-          >
-
-          Pickup
-
-        </label>
-
-      </fieldset>
-
-
-      <!-- ADDRESS -->
-
-      <div>
-
-        <label for="address">
-          Delivery Address
-        </label>
-
-        <textarea
-          id="address"
-          name="address"
-          placeholder="Enter your delivery address"
-        ></textarea>
-
-      </div>
-
-
-      <!-- SPECIAL REQUEST -->
-
-      <div>
-
-        <label for="special-request">
-          Special Instructions
-        </label>
-
-        <textarea
-          id="special-request"
-          name="special-request"
-          placeholder="Any special requests?"
-        ></textarea>
-
-      </div>
-
-
-
-
-
-
-
-
-
-      <!-- ORDER SUMMARY -->
-<div>
-  <h3>Order Summary</h3>
-  <p id="summary-text">Suya Steak × 1</p>
-  <p id="summary-total">Total: $30</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-      
-
-      <!-- SUBMIT -->
-
-      <button type="submit">
-        Place Order
-      </button>
-
-
-    </form>
-
-  </section>
-
-</main>
-
-
-<footer>
-
-  <p>
-    &copy; 2026 Savouré. All rights reserved.
-  </p>
-
-</footer>
-
-
-
-
-
-    
-    <script src="./script.js"></script>
-  </body>
+  <script src="./script.js"></script>
+</body>
 </html>
