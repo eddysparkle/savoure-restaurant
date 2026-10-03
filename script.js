@@ -132,3 +132,112 @@ if (quantityInput && summaryText && summaryTotal) {
 
 
 
+
+
+
+
+
+
+// =========================
+// QUANTITY → ORDER SUMMARY
+// =========================
+const quantityInput = document.getElementById("quantity");
+const summaryText = document.getElementById("summary-text");
+const summaryTotal = document.getElementById("summary-total");
+
+if (quantityInput && summaryText && summaryTotal) {
+  const dishTitle = document.querySelector("main section:first-child h2");
+  const priceElement = document.querySelector("main section:first-child h3");
+
+  if (dishTitle && priceElement) {
+    const dishName = dishTitle.textContent.trim();
+    const basePrice = parseFloat(priceElement.textContent.replace("$", "").trim());
+
+    function updateSummary() {
+      const qty = parseInt(quantityInput.value) || 1;
+      const total = basePrice * qty;
+      summaryText.textContent = dishName + " × " + qty;
+      summaryTotal.textContent = "Total: $" + total;
+    }
+
+    updateSummary();
+    quantityInput.addEventListener("input", updateSummary);
+    quantityInput.addEventListener("change", updateSummary);
+  }
+}
+
+// =========================
+// ORDER FORM + CONFIRMATION
+// =========================
+const orderForm = document.getElementById("order-form");
+
+if (orderForm) {
+  const orderSection = document.getElementById("order-section");
+  const confirmation = document.getElementById("order-confirmation");
+  const submitBtn = orderForm.querySelector("button[type='submit']");
+  const addressField = document.getElementById("address-field");
+  const addressInput = document.getElementById("address");
+  const orderTypeRadios = orderForm.querySelectorAll("input[name='order-type']");
+
+  function toggleAddress() {
+    const selected = orderForm.querySelector("input[name='order-type']:checked");
+    if (!addressField || !selected) return;
+
+    if (selected.value === "pickup") {
+      addressField.style.display = "none";
+      if (addressInput) addressInput.required = false;
+    } else {
+      addressField.style.display = "block";
+      if (addressInput) addressInput.required = true;
+    }
+  }
+
+  orderTypeRadios.forEach(function (radio) {
+    radio.addEventListener("change", toggleAddress);
+  });
+  toggleAddress();
+
+  orderForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    if (submitBtn) {
+      submitBtn.textContent = "Sending...";
+      submitBtn.disabled = true;
+    }
+
+    try {
+      const response = await fetch(orderForm.action, {
+        method: "POST",
+        body: new FormData(orderForm),
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        if (orderSection) orderSection.style.display = "none";
+        if (confirmation) {
+          confirmation.style.display = "block";
+          confirmation.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        if (submitBtn) {
+          submitBtn.textContent = "Failed – Try Again";
+          submitBtn.disabled = false;
+        }
+      }
+    } catch (error) {
+      if (submitBtn) {
+        submitBtn.textContent = "Error – Try Again";
+        submitBtn.disabled = false;
+      }
+    }
+  });
+}
+
+
+
+
+
+
+
+
+
