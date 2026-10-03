@@ -1,238 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pen</title>
-  </head>
-  <body>
-
-
-
-
-
-
-
-
-<header>
-  <a href="index.html">
-  <h1>savouré</h1>
-</a>
-  <a href="index.html#menu">← Back to Menu</a>
-</header>
-
-<main>
-
-  <section>
-    <p>CREATE YOUR OWN</p>
-
-    <h2>Custom Order</h2>
-
-    <p>
-      Create a meal designed exactly the way you like it.
-      Choose your base, protein, sides, and spice level.
-    </p>
-  </section>
-
-
-  <section>
-    <h2>Build Your Meal</h2>
-
-    <form>
-
-      <label for="food-type">Food Type</label>
-      <select id="food-type" name="food-type" required>
-        <option value="">Choose a food type</option>
-        <option value="Main Course">Main Course</option>
-        <option value="Seafood">Seafood</option>
-        <option value="Grill">Grill</option>
-        <option value="Rice Dish">Rice Dish</option>
-        <option value="Pasta">Pasta</option>
-      </select>
-
-
-      <label for="base">Base / Main</label>
-      <select id="base" name="base" required>
-        <option value="">Choose your base</option>
-        <option value="Jollof Rice">Jollof Rice</option>
-        <option value="Fried Rice">Fried Rice</option>
-        <option value="White Rice">White Rice</option>
-        <option value="Fried Plantain">Fried Plantain</option>
-        <option value="Pasta">Pasta</option>
-      </select>
-
-
-      <label for="protein">Protein</label>
-      <select id="protein" name="protein" required>
-        <option value="">Choose your protein</option>
-        <option value="Grilled Chicken">Grilled Chicken</option>
-        <option value="Suya Steak">Suya Steak</option>
-        <option value="Prawns">Prawns</option>
-        <option value="Grilled Fish">Grilled Fish</option>
-      </select>
-
-
-      <label for="side">Side</label>
-      <select id="side" name="side">
-        <option value="">Choose a side</option>
-        <option value="Plantain">Plantain</option>
-        <option value="Fries">Fries</option>
-        <option value="Vegetables">Vegetables</option>
-        <option value="Salad">Salad</option>
-      </select>
-
-
-      <p>Spice Level</p>
-
-      <label>
-        <input
-          type="radio"
-          name="spice-level"
-          value="Mild"
-          checked
-        >
-        Mild
-      </label>
-
-      <label>
-        <input
-          type="radio"
-          name="spice-level"
-          value="Medium"
-        >
-        Medium
-      </label>
-
-      <label>
-        <input
-          type="radio"
-          name="spice-level"
-          value="Hot"
-        >
-        Hot
-      </label>
-
-
-      <label for="quantity">Quantity</label>
-
-      <input
-        type="number"
-        id="quantity"
-        name="quantity"
-        value="1"
-        min="1"
-        required
-      >
-
-
-      <label for="customer-name">Your Name</label>
-
-      <input
-        type="text"
-        id="customer-name"
-        name="customer-name"
-        required
-      >
-
-
-      <label for="customer-phone">Phone Number</label>
-
-      <input
-        type="tel"
-        id="customer-phone"
-        name="customer-phone"
-        required
-      >
-
-
-      <p>Order Type</p>
-
-      <label>
-        <input
-          type="radio"
-          name="order-type"
-          value="delivery"
-          checked
-        >
-        Delivery
-      </label>
-
-      <label>
-        <input
-          type="radio"
-          name="order-type"
-          value="pickup"
-        >
-        Pickup
-      </label>
-
-
-      <label for="address">Delivery Address</label>
-
-      <textarea
-        id="address"
-        name="address"
-        placeholder="Enter your delivery address"
-        required
-      ></textarea>
-
-
-      <label for="special-request">
-        Special Requests
-      </label>
-
-      <textarea
-        id="special-request"
-        name="special-request"
-        placeholder="Tell us how you'd like your meal prepared..."
-      ></textarea>
-
-
-      <label for="allergies">
-        Allergies / Dietary Notes
-      </label>
-
-      <textarea
-        id="allergies"
-        name="allergies"
-        placeholder="Let us know about any allergies or dietary requirements..."
-      ></textarea>
-
-
-      <div>
-        <h3>Order Summary</h3>
-
-        <p>
-          Your custom meal will be reviewed by Savouré.
-        </p>
-
-        <p>
-          <strong>Price: To be confirmed</strong>
-        </p>
-      </div>
-
-
-      <button type="submit">
-        Submit Custom Order
-      </button>
-
-    </form>
-  </section>
-
-</main>
-
-
-<footer>
-  <p>&copy; 2026 Savouré. All rights reserved.</p>
-</footer>
-
-
-
-
-
-
-    
-    <script src="./script.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Order | Savouré</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <a href="index.html">
+      <h1>savouré</h1>
+    </a>
+    <a href="index.html#menu">← Back to Menu</a>
+  </header>
+
+  <!-- ================= MAIN ================= -->
+  <main>
+
+    <!-- Intro Section -->
+    <section>
+      <p>CREATE YOUR OWN</p>
+      <h2>Custom Order</h2>
+      <p>
+        Create a meal designed exactly the way you like it.
+        Choose your base, protein, sides, and spice level.
+      </p>
+    </section>
+
+    <!-- Build Your Meal Form -->
+    <section>
+      <h2>Build Your Meal</h2>
+
+      <form>
+
+        <!-- Food Type -->
+        <label for="food-type">Food Type</label>
+        <select id="food-type" name="food-type" required>
+          <option value="">Choose a food type</option>
+          <option value="Main Course">Main Course</option>
+          <option value="Seafood">Seafood</option>
+          <option value="Grill">Grill</option>
+          <option value="Rice Dish">Rice Dish</option>
+          <option value="Pasta">Pasta</option>
+        </select>
+
+        <!-- Base -->
+        <label for="base">Base / Main</label>
+        <select id="base" name="base" required>
+          <option value="">Choose your base</option>
+          <option value="Jollof Rice">Jollof Rice</option>
+          <option value="Fried Rice">Fried Rice</option>
+          <option value="White Rice">White Rice</option>
+          <option value="Fried Plantain">Fried Plantain</option>
+          <option value="Pasta">Pasta</option>
+        </select>
+
+        <!-- Protein -->
+        <label for="protein">Protein</label>
+        <select id="protein" name="protein" required>
+          <option value="">Choose your protein</option>
+          <option value="Grilled Chicken">Grilled Chicken</option>
+          <option value="Suya Steak">Suya Steak</option>
+          <option value="Prawns">Prawns</option>
+          <option value="Grilled Fish">Grilled Fish</option>
+        </select>
+
+        <!-- Side -->
+        <label for="side">Side</label>
+        <select id="side" name="side">
+          <option value="">Choose a side</option>
+          <option value="Plantain">Plantain</option>
+          <option value="Fries">Fries</option>
+          <option value="Vegetables">Vegetables</option>
+          <option value="Salad">Salad</option>
+        </select>
+
+        <!-- Spice Level -->
+        <p>Spice Level</p>
+        <label>
+          <input type="radio" name="spice-level" value="Mild" checked>
+          Mild
+        </label>
+        <label>
+          <input type="radio" name="spice-level" value="Medium">
+          Medium
+        </label>
+        <label>
+          <input type="radio" name="spice-level" value="Hot">
+          Hot
+        </label>
+
+        <!-- Quantity -->
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+
+        <!-- Customer Name -->
+        <label for="customer-name">Your Name</label>
+        <input type="text" id="customer-name" name="customer-name" required>
+
+        <!-- Phone -->
+        <label for="customer-phone">Phone Number</label>
+        <input type="tel" id="customer-phone" name="customer-phone" required>
+
+        <!-- Order Type -->
+        <p>Order Type</p>
+        <label>
+          <input type="radio" name="order-type" value="delivery" checked>
+          Delivery
+        </label>
+        <label>
+          <input type="radio" name="order-type" value="pickup">
+          Pickup
+        </label>
+
+        <!-- Address -->
+        <label for="address">Delivery Address</label>
+        <textarea id="address" name="address" placeholder="Enter your delivery address" required></textarea>
+
+        <!-- Special Requests -->
+        <label for="special-request">Special Requests</label>
+        <textarea id="special-request" name="special-request" placeholder="Tell us how you'd like your meal prepared..."></textarea>
+
+        <!-- Allergies -->
+        <label for="allergies">Allergies / Dietary Notes</label>
+        <textarea id="allergies" name="allergies" placeholder="Let us know about any allergies or dietary requirements..."></textarea>
+
+        <!-- Order Summary -->
+        <div>
+          <h3>Order Summary</h3>
+          <p>Your custom meal will be reviewed by Savouré.</p>
+          <p><strong>Price: To be confirmed</strong></p>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit Custom Order</button>
+
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>&copy; 2026 Savouré. All rights reserved.</p>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
 </html>
