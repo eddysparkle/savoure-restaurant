@@ -108,3 +108,45 @@ orderForm.addEventListener("submit", function (event) {
 
 // Initial summary
 updateSummary();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Update Order Summary when quantity changes
+const quantityInput = document.getElementById("quantity");
+const summaryText = document.querySelector("form > div:last-of-type p:first-of-type");
+const totalText = document.querySelector("form > div:last-of-type p:last-of-type");
+
+// Get the dish name and base price from the page
+const dishName = document.querySelector("main section:first-child h2").textContent.trim();
+const basePrice = parseFloat(document.querySelector("main section:first-child h3").textContent.replace("$", ""));
+
+function updateSummary() {
+  const qty = parseInt(quantityInput.value) || 1;
+  const total = (basePrice * qty).toFixed(0);
+
+  summaryText.textContent = `${dishName} × ${qty}`;
+  totalText.textContent = `Total: $${total}`;
+}
+
+// Run once on page load
+updateSummary();
+
+// Update every time the user changes the quantity
+quantityInput.addEventListener("input", updateSummary);
+
