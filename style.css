@@ -2103,3 +2103,200 @@ form > div:last-of-type p {
 
 
 
+
+
+
+
+
+
+/* =====================================================
+   FULL DESKTOP LAYOUT FIX – PASTE AT THE BOTTOM
+===================================================== */
+
+/* Prevent dish-page styles from squeezing the homepage */
+body > main {
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ---------- HEADER ---------- */
+header {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 22px 50px;
+}
+
+/* ---------- HERO ---------- */
+#home {
+  max-width: 1400px !important;
+  margin: 40px auto 0 !important;
+  min-height: 70vh;
+  padding: 80px 60px !important;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+#home h2 {
+  font-size: 56px !important;
+  max-width: 800px;
+}
+
+.hero-description {
+  max-width: 580px;
+  font-size: 17px;
+}
+
+/* ---------- MENU SECTION ---------- */
+#menu {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 90px 50px 70px !important;
+}
+
+.section-heading {
+  text-align: left;
+  margin-bottom: 45px;
+}
+
+.section-heading h2 {
+  font-size: 46px !important;
+}
+
+/* ---------- MENU GRID ---------- */
+.menu-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 28px !important;
+  width: 100%;
+}
+
+/* Make menu cards consistent height */
+.menu-card {
+  height: 460px !important;
+  border-radius: 16px;
+}
+
+/* ---------- CUSTOM ORDER CARD ---------- */
+.custom-order-card {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  height: 460px !important;
+  padding: 40px 32px !important;
+  border: 1px solid #d4af37;
+  border-radius: 16px;
+  background: linear-gradient(160deg, #141414, #0d0d0d);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.custom-order-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+}
+
+.custom-order-card p:first-child {
+  color: #d4af37;
+  letter-spacing: 2px;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.custom-order-card h3 {
+  font-size: 28px;
+  margin: 0 0 16px;
+}
+
+.custom-order-card p {
+  color: #cfcfcf;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.custom-order-btn,
+.custom-order-card a {
+  color: #d4af37 !important;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: auto;
+}
+
+/* ---------- ABOUT ---------- */
+#about {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 90px 50px !important;
+}
+
+.about-content {
+  max-width: 800px;
+}
+
+/* ---------- CONTACT ---------- */
+#contact {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 90px 50px 100px !important;
+}
+
+#contact-form {
+  max-width: 650px;
+}
+
+/* ---------- LARGE DESKTOP ---------- */
+@media (min-width: 1400px) {
+  #home,
+  #menu,
+  #about,
+  #contact,
+  header {
+    max-width: 1500px;
+  }
+}
+
+/* ---------- TABLET ---------- */
+@media (max-width: 1100px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .menu-card,
+  .custom-order-card {
+    height: 420px !important;
+  }
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 700px) {
+  .menu-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #home {
+    margin: 20px 15px 0 !important;
+    padding: 50px 25px !important;
+    min-height: 60vh;
+  }
+
+  #home h2 {
+    font-size: 36px !important;
+  }
+
+  #menu,
+  #about,
+  #contact {
+    padding: 60px 20px !important;
+  }
+}
+
+
+
+
+
+
+
+
+
