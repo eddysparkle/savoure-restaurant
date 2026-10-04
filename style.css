@@ -2623,3 +2623,204 @@ header {
   opacity: 1 !important;
   transform: none !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   PROFESSIONAL POLISH
+===================================================== */
+
+/* Fonts */
+body {
+  font-family: "Inter", Arial, sans-serif;
+}
+
+h1, h2, h3, .section-heading h2, #home h2,
+.menu-content h3, .custom-order-card h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+/* Logo link */
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-link h1 {
+  color: #d4af37;
+}
+
+/* Menu cards always visible */
+.menu-card {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid #332b1b;
+  background: #0a0a0a;
+  padding: 60px 50px 30px;
+  margin-top: 40px;
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-brand h3 {
+  margin: 0 0 10px;
+  color: #d4af37;
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+.footer-brand p,
+.footer-col p {
+  margin: 6px 0;
+  color: #999;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-col h4 {
+  margin: 0 0 14px;
+  color: #f5f1e8;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 600;
+}
+
+.footer-col a {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.footer-col a:hover {
+  color: #d4af37;
+}
+
+.footer-bottom {
+  max-width: 1400px;
+  margin: 40px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid #222;
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #666;
+  font-size: 13px;
+}
+
+/* Order confirmation polish */
+.confirmation-box {
+  background: #111;
+  border: 1px solid #3a2f18;
+  padding: 50px 30px;
+  text-align: center;
+  border-radius: 12px;
+}
+
+.confirmation-label {
+  color: #d4af37;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.confirmation-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d4af37;
+  border-radius: 50%;
+  color: #d4af37;
+  font-size: 1.8rem;
+}
+
+#back-to-menu {
+  display: inline-block;
+  padding: 14px 28px;
+  background: #d4af37;
+  color: #080808 !important;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+#back-to-menu:hover {
+  background: #e6c34a;
+}
+
+/* Mobile footer */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 40px 20px 24px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
