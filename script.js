@@ -1,5 +1,5 @@
 // =========================
-// MOBILE MENU (Homepage only)
+// MOBILE MENU
 // =========================
 const menuButton = document.getElementById("menu-toggle");
 const navMenu = document.getElementById("nav-menu");
@@ -7,44 +7,44 @@ const navMenu = document.getElementById("nav-menu");
 if (menuButton && navMenu) {
   menuButton.addEventListener("click", function () {
     navMenu.classList.toggle("open");
+
+    const isOpen = navMenu.classList.contains("open");
+    menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
   });
 
-  const navLinks = navMenu.querySelectorAll("a");
-  navLinks.forEach(function (link) {
+  navMenu.querySelectorAll("a").forEach(function (link) {
     link.addEventListener("click", function () {
       navMenu.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
     });
   });
 }
 
 // =========================
-// CONTACT FORM (Homepage only)
+// CONTACT FORM (homepage)
 // =========================
 const contactForm = document.getElementById("contact-form");
 const submitButton = document.getElementById("submit-button");
 
 if (contactForm && submitButton) {
   contactForm.addEventListener("submit", async function (event) {
-    event.preventDefault();
+    event.preventDefault(); // stops Formspree thank-you page
 
     submitButton.textContent = "Sending...";
     submitButton.disabled = true;
 
-    const formData = new FormData(contactForm);
-
     try {
       const response = await fetch(contactForm.action, {
         method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json"
-        }
+        body: new FormData(contactForm),
+        headers: { Accept: "application/json" }
       });
 
       if (response.ok) {
         submitButton.textContent = "Message Sent!";
         contactForm.reset();
 
+        // wipe message and re-enable button after 3 seconds
         setTimeout(function () {
           submitButton.textContent = "Send Message";
           submitButton.disabled = false;
@@ -67,7 +67,7 @@ if (contactForm && submitButton) {
 }
 
 // =========================
-// MENU CARD ANIMATION (Homepage only)
+// MENU CARD ANIMATION (homepage)
 // =========================
 const menuCards = document.querySelectorAll(".menu-card");
 
@@ -85,19 +85,8 @@ if (menuCards.length > 0) {
   });
 }
 
-
-
-
-
-
-
-
-
-
-
-
 // =========================
-// QUANTITY → ORDER SUMMARY (Dish pages)
+// QUANTITY → ORDER SUMMARY (dish pages)
 // =========================
 const quantityInput = document.getElementById("quantity");
 const summaryText = document.getElementById("summary-text");
@@ -109,10 +98,10 @@ if (quantityInput && summaryText && summaryTotal) {
 
   if (dishTitle && priceElement) {
     const dishName = dishTitle.textContent.trim();
-    const basePrice = parseFloat(priceElement.textContent.replace("$", "").trim());
+    const basePrice = parseFloat(priceElement.textContent.replace("$", "").trim()) || 0;
 
     function updateSummary() {
-      const qty = parseInt(quantityInput.value) || 1;
+      const qty = parseInt(quantityInput.value, 10) || 1;
       const total = basePrice * qty;
 
       summaryText.textContent = dishName + " × " + qty;
@@ -125,62 +114,21 @@ if (quantityInput && summaryText && summaryTotal) {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // =========================
-// QUANTITY → ORDER SUMMARY
-// =========================
-const quantityInput = document.getElementById("quantity");
-const summaryText = document.getElementById("summary-text");
-const summaryTotal = document.getElementById("summary-total");
-
-if (quantityInput && summaryText && summaryTotal) {
-  const dishTitle = document.querySelector("main section:first-child h2");
-  const priceElement = document.querySelector("main section:first-child h3");
-
-  if (dishTitle && priceElement) {
-    const dishName = dishTitle.textContent.trim();
-    const basePrice = parseFloat(priceElement.textContent.replace("$", "").trim());
-
-    function updateSummary() {
-      const qty = parseInt(quantityInput.value) || 1;
-      const total = basePrice * qty;
-      summaryText.textContent = dishName + " × " + qty;
-      summaryTotal.textContent = "Total: $" + total;
-    }
-
-    updateSummary();
-    quantityInput.addEventListener("input", updateSummary);
-    quantityInput.addEventListener("change", updateSummary);
-  }
-}
-
-// =========================
-// ORDER FORM + CONFIRMATION
+// ORDER FORM + CONFIRMATION (dish pages)
 // =========================
 const orderForm = document.getElementById("order-form");
 
 if (orderForm) {
   const orderSection = document.getElementById("order-section");
   const confirmation = document.getElementById("order-confirmation");
-  const submitBtn = orderForm.querySelector("button[type='submit']");
+  const submitBtn = orderForm.querySelector('button[type="submit"]');
   const addressField = document.getElementById("address-field");
   const addressInput = document.getElementById("address");
-  const orderTypeRadios = orderForm.querySelectorAll("input[name='order-type']");
+  const orderTypeRadios = orderForm.querySelectorAll('input[name="order-type"]');
 
   function toggleAddress() {
-    const selected = orderForm.querySelector("input[name='order-type']:checked");
+    const selected = orderForm.querySelector('input[name="order-type"]:checked');
     if (!addressField || !selected) return;
 
     if (selected.value === "pickup") {
@@ -198,7 +146,7 @@ if (orderForm) {
   toggleAddress();
 
   orderForm.addEventListener("submit", async function (event) {
-    event.preventDefault();
+    event.preventDefault(); // stops Formspree thank-you page
 
     if (submitBtn) {
       submitBtn.textContent = "Sending...";
@@ -218,11 +166,9 @@ if (orderForm) {
           confirmation.style.display = "block";
           confirmation.scrollIntoView({ behavior: "smooth" });
         }
-      } else {
-        if (submitBtn) {
-          submitBtn.textContent = "Failed – Try Again";
-          submitBtn.disabled = false;
-        }
+      } else if (submitBtn) {
+        submitBtn.textContent = "Failed – Try Again";
+        submitBtn.disabled = false;
       }
     } catch (error) {
       if (submitBtn) {
@@ -232,12 +178,3 @@ if (orderForm) {
     }
   });
 }
-
-
-
-
-
-
-
-
-
