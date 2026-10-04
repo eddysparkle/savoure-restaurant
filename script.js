@@ -5,20 +5,53 @@ const menuButton = document.getElementById("menu-toggle");
 const navMenu = document.getElementById("nav-menu");
 
 if (menuButton && navMenu) {
-  menuButton.addEventListener("click", function () {
-    navMenu.classList.toggle("open");
+  function closeMenu() {
+    navMenu.classList.remove("open");
+    menuButton.setAttribute("aria-expanded", "false");
+  }
 
-    const isOpen = navMenu.classList.contains("open");
-    menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  function openMenu() {
+    navMenu.classList.add("open");
+    menuButton.setAttribute("aria-expanded", "true");
+  }
+
+  // Toggle when hamburger is clicked
+  menuButton.addEventListener("click", function (event) {
+    event.stopPropagation(); // don't bubble to document
+
+    if (navMenu.classList.contains("open")) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
 
+  // Close when a nav link is clicked
   navMenu.querySelectorAll("a").forEach(function (link) {
     link.addEventListener("click", function () {
-      navMenu.classList.remove("open");
-      menuButton.setAttribute("aria-expanded", "false");
+      closeMenu();
     });
   });
+
+  // Close when tapping anywhere outside the menu
+  document.addEventListener("click", function (event) {
+    if (!navMenu.classList.contains("open")) return;
+
+    const clickedInsideMenu = navMenu.contains(event.target);
+    const clickedButton = menuButton.contains(event.target);
+
+    if (!clickedInsideMenu && !clickedButton) {
+      closeMenu();
+    }
+  });
+
+  // Don't close when tapping inside the menu itself
+  navMenu.addEventListener("click", function (event) {
+    event.stopPropagation();
+  });
 }
+
+      
 
 // =========================
 // CONTACT FORM (homepage)
