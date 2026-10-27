@@ -1622,3 +1622,162 @@ textarea:focus-visible {
         padding: 16px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================
+   SAVOURÉ FOOD ORDER PAGES
+   Consistent styling for every dish
+===================================== */
+
+main > section:first-child {
+    max-width: 900px;
+    width: calc(100% - 32px);
+    margin: 40px auto;
+    padding: 30px;
+    box-sizing: border-box;
+    background: #111111;
+    color: #f5f1e8;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 14px;
+}
+
+main > section:first-child > img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 350px;
+    object-fit: cover;
+    object-position: center;
+    margin: 0 auto 24px;
+    border-radius: 10px;
+}
+
+main > section:first-child > p:first-of-type {
+    color: #d4af37;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+main > section:first-child > h2 {
+    color: #d4af37;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(28px, 5vw, 42px);
+    margin: 10px 0;
+}
+
+main > section:first-child > h3 {
+    color: #d4af37;
+    font-size: 26px;
+    margin-top: 20px;
+}
+
+/* ORDER FORM */
+
+#order-section {
+    max-width: 900px;
+    width: calc(100% - 32px);
+    margin: 40px auto;
+    padding: 30px;
+    box-sizing: border-box;
+    background: #111111;
+    color: #f5f1e8;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 14px;
+}
+
+#order-section > h2 {
+    color: #d4af37;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 34px;
+    margin-top: 0;
+}
+
+#order-form > div {
+    margin-bottom: 20px;
+}
+
+#order-form label,
+#order-form legend {
+    display: block;
+    margin-bottom: 8px;
+    color: #f5f1e8;
+}
+
+#order-form input:not([type="radio"]),
+#order-form textarea {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    box-sizing: border-box;
+    background: #1b1b1b;
+    color: #f5f1e8;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    font: inherit;
+}
+
+#order-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+#order-form fieldset {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #444444;
+    border-radius: 8px;
+}
+
+#order-form fieldset label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 20px;
+}
+
+#order-form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: #d4af37;
+    color: #111111;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#order-form button[type="submit"]:hover {
+    background: #f0d36e;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    main > section:first-child,
+    #order-section {
+        width: calc(100% - 24px);
+        padding: 18px;
+        margin: 24px auto;
+    }
+
+    main > section:first-child > img {
+        height: 240px;
+    }
+
+    #order-section > h2 {
+        font-size: 29px;
+    }
+}
