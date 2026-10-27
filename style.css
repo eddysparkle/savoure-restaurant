@@ -1514,3 +1514,111 @@ textarea:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+
+
+
+
+/* CONSISTENT SAVOURÉ MENU CARD STYLING */
+
+.menu-grid .menu-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    background: #111;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 12px;
+    text-decoration: none;
+    color: #f5f1e8;
+}
+
+.menu-grid .menu-card > img {
+    display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.menu-grid .menu-card .menu-overlay {
+    position: relative;
+    inset: auto;
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #111;
+    padding: 0;
+}
+
+.menu-grid .menu-card .menu-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: left;
+    color: #f5f1e8;
+}
+
+.menu-grid .menu-card h3 {
+    color: #d4af37;
+    margin: 0 0 10px;
+}
+
+.menu-grid .menu-card p {
+    color: #f5f1e8;
+    margin: 0 0 15px;
+}
+
+.menu-grid .menu-card .view-details,
+.menu-grid .menu-card .add-to-cart-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 44px;
+    padding: 12px 16px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.menu-grid .menu-card .view-details {
+    background: transparent;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+}
+
+.menu-grid .menu-card .add-to-cart-btn {
+    background: #d4af37;
+    color: #111;
+    border: 1px solid #d4af37;
+}
+
+.menu-grid .menu-card .view-details:hover {
+    background: #d4af37;
+    color: #111;
+}
+
+.menu-grid .menu-card .add-to-cart-btn:hover {
+    background: #f5d76e;
+    border-color: #f5d76e;
+}
+
+@media (max-width: 600px) {
+    .menu-grid .menu-card > img {
+        height: 210px;
+    }
+
+    .menu-grid .menu-card .menu-content {
+        padding: 16px;
+    }
+}
