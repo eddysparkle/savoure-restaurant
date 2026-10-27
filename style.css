@@ -2965,6 +2965,90 @@ font-size: 14px;
 
 
 
+/* FIX: SAVOURÉ MENU CARD IMAGE OVERLAP */
+
+.menu-grid {
+display: grid !important;
+grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+gap: 24px !important;
+align-items: stretch !important;
+}
+
+.menu-grid .menu-card {
+display: flex !important;
+flex-direction: column !important;
+position: relative !important;
+width: 100% !important;
+min-width: 0 !important;
+height: auto !important;
+overflow: hidden !important;
+box-sizing: border-box !important;
+}
+
+.menu-grid .menu-card > img {
+position: relative !important;
+display: block !important;
+width: 100% !important;
+height: 240px !important;
+min-height: 0 !important;
+max-height: 240px !important;
+margin: 0 !important;
+padding: 0 !important;
+object-fit: cover !important;
+object-position: center !important;
+flex-shrink: 0 !important;
+}
+
+.menu-grid .menu-card .menu-overlay {
+position: relative !important;
+inset: auto !important;
+width: 100% !important;
+height: auto !important;
+flex: 1 1 auto !important;
+box-sizing: border-box !important;
+background: #111 !important;
+}
+
+.menu-grid .menu-card .menu-content {
+position: relative !important;
+inset: auto !important;
+width: 100% !important;
+height: auto !important;
+box-sizing: border-box !important;
+padding: 20px !important;
+}
+
+.menu-grid .menu-card h3,
+.menu-grid .menu-card p,
+.menu-grid .menu-card .menu-category,
+.menu-grid .menu-card .menu-price {
+position: relative !important;
+z-index: 2 !important;
+}
+
+.menu-grid .menu-card .view-details,
+.menu-grid .menu-card .add-to-cart-btn {
+position: relative !important;
+z-index: 3 !important;
+}
+
+@media (max-width: 700px) {
+.menu-grid {
+grid-template-columns: minmax(0, 1fr) !important;
+gap: 24px !important;
+}
+
+.menu-grid .menu-card > img {
+height: 220px !important;
+max-height: 220px !important;
+}
+
+.menu-grid .menu-card .menu-content {
+padding: 18px !important;
+}
+}
+
+
 
 
 
