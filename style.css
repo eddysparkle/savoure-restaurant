@@ -1965,3 +1965,54 @@ main > section:first-child > h3 {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================
+   SAVOURÉ MENU CARD SPACING
+===================================== */
+
+#menu .menu-grid {
+    gap: 35px !important;
+    padding: 10px 8px 30px !important;
+    box-sizing: border-box;
+    align-items: stretch;
+}
+
+#menu .menu-grid > .menu-card {
+    margin: 0 !important;
+}
+
+/* Tablet spacing */
+@media (max-width: 900px) {
+    #menu .menu-grid {
+        gap: 28px !important;
+        padding: 10px 6px 25px !important;
+    }
+}
+
+/* Mobile spacing */
+@media (max-width: 600px) {
+    #menu .menu-grid {
+        gap: 24px !important;
+        padding: 8px 4px 24px !important;
+    }
+}
+
+
+
+
+
+
+
