@@ -211,3 +211,71 @@ if (orderForm) {
     }
   });
 }
+
+
+
+
+
+
+
+// SAVOURÉ SHOPPING CART
+const savoureCart = [];
+
+function addToSavoureCart(name, price) {
+  const existingItem = savoureCart.find(
+    item => item.name === name
+  );
+
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    savoureCart.push({
+      name: name,
+      price: Number(price),
+      quantity: 1
+    });
+  }
+
+  renderSavoureCart();
+}
+
+function renderSavoureCart() {
+  const cartItems = document.getElementById("savoure-cart-items");
+  const cartTotal = document.getElementById("savoure-cart-total");
+
+  if (!cartItems || !cartTotal) return;
+
+  cartItems.innerHTML = "";
+  let total = 0;
+
+  savoureCart.forEach((item, index) => {
+    const subtotal = item.price * item.quantity;
+    total += subtotal;
+
+    const row = document.createElement("div");
+    row.className = "savoure-cart-item";
+
+    const description = document.createElement("span");
+    description.textContent =
+      `${item.name} × ${item.quantity} — $${subtotal.toFixed(2)}`;
+
+    const removeButton = document.createElement("button");
+    removeButton.type = "button";
+    removeButton.textContent = "−";
+    removeButton.setAttribute("aria-label", `Remove one ${item.name}`);
+    removeButton.addEventListener("click", () => {
+      item.quantity -= 1;
+
+      if (item.quantity <= 0) {
+        savoureCart.splice(index, 1);
+      }
+
+      renderSavoureCart();
+    });
+
+    row.append(description, removeButton);
+    cartItems.appendChild(row);
+  });
+
+  cartTotal.textContent = `$${total.toFixed(2)}`;
+}
