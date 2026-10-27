@@ -1781,3 +1781,187 @@ main > section:first-child > h3 {
         font-size: 29px;
     }
 }
+
+
+
+
+
+
+
+/* =====================================
+   SAVOURÉ — UNIFIED MENU CARD FIX
+===================================== */
+
+#menu .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+#menu .menu-grid > .menu-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch;
+    min-width: 0;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    background: #111111 !important;
+    color: #f5f1e8;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 12px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/* Image */
+
+#menu .menu-grid > .menu-card > img {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    height: 240px !important;
+    min-height: 240px;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin: 0;
+    border-radius: 0;
+    opacity: 1;
+}
+
+/* Remove overlay positioning */
+
+#menu .menu-grid > .menu-card > .menu-overlay {
+    position: static !important;
+    inset: auto !important;
+    display: block !important;
+    width: 100%;
+    height: auto !important;
+    flex: 1;
+    padding: 0;
+    background: #111111 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+/* Card content */
+
+#menu .menu-grid > .menu-card .menu-content {
+    position: static !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+    padding: 22px;
+    box-sizing: border-box;
+    background: #111111 !important;
+    color: #f5f1e8;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+#menu .menu-card .menu-category {
+    color: #d4af37;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+#menu .menu-card h3 {
+    color: #d4af37 !important;
+    font-size: 25px;
+    margin: 0 0 12px;
+}
+
+#menu .menu-card p {
+    color: #f5f1e8 !important;
+    line-height: 1.7;
+    margin: 0 0 16px;
+}
+
+#menu .menu-card .menu-price {
+    display: block;
+    color: #d4af37 !important;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 16px;
+}
+
+/* Buttons */
+
+#menu .menu-card .view-details,
+#menu .menu-card .add-to-cart-btn {
+    display: flex !important;
+    position: static !important;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important;
+    min-height: 46px;
+    margin: 8px 0 0;
+    padding: 12px 16px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+#menu .menu-card .view-details {
+    background: transparent !important;
+    color: #d4af37 !important;
+    border: 1px solid #d4af37 !important;
+}
+
+#menu .menu-card .add-to-cart-btn {
+    background: #d4af37 !important;
+    color: #111111 !important;
+    border: 1px solid #d4af37 !important;
+}
+
+#menu .menu-card .view-details:hover {
+    background: #d4af37 !important;
+    color: #111111 !important;
+}
+
+#menu .menu-card .add-to-cart-btn:hover {
+    background: #f0d36e !important;
+    color: #111111 !important;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+    #menu .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Phone */
+
+@media (max-width: 600px) {
+    #menu .menu-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #menu .menu-grid > .menu-card > img {
+        height: 230px !important;
+        min-height: 230px;
+    }
+
+    #menu .menu-grid > .menu-card .menu-content {
+        padding: 18px;
+    }
+}
+
+
