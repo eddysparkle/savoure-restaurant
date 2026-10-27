@@ -163,3 +163,48 @@ orderForm.addEventListener("submit", function (event) {
       window.location.href = "index.html#menu";
     });
 });
+
+
+
+
+
+
+
+// SAVOURÉ CART CHECKOUT
+function checkoutSavoureCart() {
+if (savoureCart.length === 0) {
+alert("Your cart is empty. Please add a dish first.");
+return;
+}
+
+// Replace this placeholder with the restaurant's real
+// WhatsApp number, including country code, without + or spaces.
+const restaurantWhatsApp = "REPLACE_WITH_REAL_NUMBER";
+
+if (!/^\d{10,15}$/.test(restaurantWhatsApp)) {
+alert("WhatsApp checkout is not configured yet. Please contact the restaurant.");
+return;
+}
+
+let message = "Hello Savouré! I'd like to place an order:\n\n";
+let total = 0;
+
+savoureCart.forEach(item => {
+const subtotal = item.price * item.quantity;
+total += subtotal;
+
+message += `${item.name} x ${item.quantity} — $${subtotal.toFixed(2)}\n`;
+
+});
+
+message += "\nTotal: $${total.toFixed(2)}";
+message += "\n\nPlease confirm availability and delivery details.";
+
+const whatsappURL =
+"https://wa.me/" +
+restaurantWhatsApp +
+"?text=" +
+encodeURIComponent(message);
+
+window.open(whatsappURL, "_blank", "noopener,noreferrer");
+}
