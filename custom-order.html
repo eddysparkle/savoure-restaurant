@@ -16,8 +16,9 @@
   <style>
     :root {
       --gold: #d4af37;
-      --bg: #101010;
-      --panel: #191919;
+      --gold-light: #f5d982;
+      --bg: #0c0c0c;
+      --panel: #171717;
       --text: #f5f1e8;
       --muted: #b8b2a5;
       --border: rgba(212, 175, 55, 0.3);
@@ -25,6 +26,10 @@
 
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -35,13 +40,17 @@
       line-height: 1.6;
     }
 
+    body.modal-open {
+      overflow: hidden;
+    }
+
     .custom-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
       padding: 18px 6%;
-      background: #0b0b0b;
+      background: #090909;
       border-bottom: 1px solid var(--border);
     }
 
@@ -106,7 +115,7 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       background: var(--panel);
-      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
     }
 
     .form-heading {
@@ -247,7 +256,7 @@
       padding: 15px 18px;
       border: none;
       border-radius: 8px;
-      background: var(--gold);
+      background: linear-gradient(135deg, #f0d078, #c39429);
       color: #111;
       font: inherit;
       font-weight: 700;
@@ -257,7 +266,7 @@
     }
 
     .submit-button:hover {
-      background: #e7c85c;
+      background: var(--gold-light);
       transform: translateY(-1px);
     }
 
@@ -277,6 +286,7 @@
     #form-status {
       margin-top: 18px;
       padding: 14px;
+      border: 1px solid var(--border);
       border-radius: 8px;
       background: #111;
       text-align: center;
@@ -293,6 +303,232 @@
 
     .custom-footer p {
       margin: 0;
+    }
+
+    /* LUXURY CONFIRMATION POPUP */
+
+    .confirmation-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(10px);
+      overflow-y: auto;
+    }
+
+    .confirmation-overlay.active {
+      display: flex;
+      animation: overlayFade 0.35s ease;
+    }
+
+    .confirmation-card {
+      position: relative;
+      width: 100%;
+      max-width: 460px;
+      max-height: 92vh;
+      overflow-y: auto;
+      padding: 32px 25px;
+      text-align: center;
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(212, 175, 55, 0.14),
+          transparent 45%
+        ),
+        #111;
+      border: 1px solid var(--gold);
+      border-radius: 18px;
+      box-shadow:
+        0 0 40px rgba(212, 175, 55, 0.12),
+        inset 0 0 25px rgba(212, 175, 55, 0.025);
+      animation: cardAppear 0.5s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .confirmation-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: transparent;
+      color: var(--gold);
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .confirmation-brand {
+      margin: 0 0 18px;
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .confirmation-check {
+      display: flex;
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 20px;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      color: var(--gold-light);
+      font-size: 40px;
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+      animation: checkPop 0.65s ease 0.15s both;
+    }
+
+    .confirmation-card h2 {
+      margin: 0 0 12px;
+      color: var(--gold-light);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 7vw, 2.65rem);
+      line-height: 1.05;
+    }
+
+    .confirmation-message {
+      max-width: 340px;
+      margin: 0 auto 24px;
+      color: #c9c2b5;
+      font-size: 0.92rem;
+      line-height: 1.8;
+    }
+
+    .confirmation-details {
+      padding: 20px;
+      margin-bottom: 22px;
+      text-align: left;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      border-radius: 12px;
+    }
+
+    .confirmation-details h3 {
+      margin: 0 0 12px;
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.65rem;
+    }
+
+    .confirmation-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 15px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+      font-size: 0.84rem;
+    }
+
+    .confirmation-row:last-child {
+      border-bottom: none;
+    }
+
+    .confirmation-row span:first-child {
+      flex-shrink: 0;
+      color: #b8b2a5;
+    }
+
+    .confirmation-row span:last-child {
+      color: #fff;
+      text-align: right;
+      overflow-wrap: anywhere;
+    }
+
+    .confirmation-tagline {
+      margin: 20px 0;
+      color: var(--gold-light);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+
+    .confirmation-signature {
+      margin: -12px 0 22px;
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-style: italic;
+    }
+
+    .confirmation-button {
+      display: block;
+      width: 100%;
+      padding: 15px 18px;
+      border: 1px solid var(--gold-light);
+      border-radius: 30px;
+      background: linear-gradient(135deg, #f0d078, #c39429);
+      color: #17120a;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .confirmation-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 22px rgba(212, 175, 55, 0.25);
+    }
+
+    .gold-confetti {
+      position: fixed;
+      top: -20px;
+      z-index: 10000;
+      width: 8px;
+      height: 13px;
+      pointer-events: none;
+      background: var(--gold);
+      animation: confettiFall linear forwards;
+    }
+
+    .gold-confetti:nth-child(even) {
+      background: #fff0b3;
+    }
+
+    .gold-confetti:nth-child(3n) {
+      width: 5px;
+      height: 8px;
+    }
+
+    @keyframes overlayFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes cardAppear {
+      from {
+        opacity: 0;
+        transform: translateY(22px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes checkPop {
+      from {
+        transform: scale(0.3);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes confettiFall {
+      to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+      }
     }
 
     @media (max-width: 560px) {
@@ -336,6 +572,28 @@
       .choice {
         padding: 9px 11px;
       }
+
+      .confirmation-card {
+        padding: 30px 18px 24px;
+      }
+
+      .confirmation-details {
+        padding: 15px;
+      }
+
+      .confirmation-row {
+        font-size: 0.78rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
@@ -361,6 +619,7 @@
       <section class="custom-panel">
 
         <h2 class="form-heading">Build Your Meal</h2>
+
         <p class="form-intro">
           Complete the form below to submit your custom meal order.
         </p>
@@ -417,6 +676,7 @@
 
             <div class="field field-full">
               <span class="group-label">Spice Level</span>
+
               <div class="option-group">
                 <label class="choice">
                   <input type="radio" name="spice-level" value="Mild" checked>
@@ -537,6 +797,7 @@
             </p>
 
             <p id="summary-quantity">Quantity: 1</p>
+
             <p id="summary-order-type">Order type: Delivery</p>
 
             <p class="summary-price">
@@ -554,8 +815,8 @@
           </button>
 
           <p class="button-note">
-            Your order will be submitted securely to Savouré through our order form.
-            Thank you for choosing us!
+            Your order will be submitted securely to Savouré through our
+            order form. Thank you for choosing us!
           </p>
 
         </form>
@@ -566,6 +827,84 @@
   <footer class="custom-footer">
     <p>&copy; 2026 Savouré. All rights reserved.</p>
   </footer>
+
+  <!-- LUXURY ORDER CONFIRMATION POPUP -->
+
+  <div
+    class="confirmation-overlay"
+    id="confirmation-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="confirmation-title"
+    aria-hidden="true"
+  >
+    <div class="confirmation-card">
+
+      <button
+        type="button"
+        class="confirmation-close"
+        id="confirmation-close"
+        aria-label="Close confirmation"
+      >&times;</button>
+
+      <p class="confirmation-brand">Savouré</p>
+
+      <div class="confirmation-check" aria-hidden="true">✓</div>
+
+      <h2 id="confirmation-title">
+        Your Order Has Been Received!
+      </h2>
+
+      <p class="confirmation-message">
+        Thank you for choosing Savouré.
+        Something delicious is on its way!
+      </p>
+
+      <div class="confirmation-details">
+        <h3>Order Details</h3>
+
+        <div class="confirmation-row">
+          <span>Your Meal</span>
+          <span id="confirm-meal">—</span>
+        </div>
+
+        <div class="confirmation-row">
+          <span>Spice Level</span>
+          <span id="confirm-spice">—</span>
+        </div>
+
+        <div class="confirmation-row">
+          <span>Quantity</span>
+          <span id="confirm-quantity">—</span>
+        </div>
+
+        <div class="confirmation-row">
+          <span>Order Type</span>
+          <span id="confirm-type">—</span>
+        </div>
+
+        <div class="confirmation-row">
+          <span>Customer</span>
+          <span id="confirm-customer">—</span>
+        </div>
+      </div>
+
+      <p class="confirmation-tagline">
+        Good food brings people together.
+      </p>
+
+      <p class="confirmation-signature">Savouré</p>
+
+      <button
+        type="button"
+        class="confirmation-button"
+        id="confirmation-continue"
+      >
+        Continue Exploring Savouré &rarr;
+      </button>
+
+    </div>
+  </div>
 
   <script>
     (function () {
@@ -591,7 +930,11 @@
 
       const submitButton = form.querySelector('button[type="submit"]');
 
-      const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xvzqappg';
+      const confirmationOverlay =
+        document.getElementById('confirmation-overlay');
+
+      const FORMSPREE_ENDPOINT =
+        'https://formspree.io/f/xvzqappg';
 
       let isSubmitting = false;
 
@@ -627,6 +970,7 @@
         }
 
         summaryQuantity.textContent = 'Quantity: ' + count;
+
         summaryOrderType.textContent =
           'Order type: ' + selectedValue('order-type');
       }
@@ -639,22 +983,101 @@
           status.id = 'form-status';
           status.setAttribute('role', 'status');
           status.setAttribute('aria-live', 'polite');
+
           form.appendChild(status);
         }
 
         status.style.color = success ? '#7ee2a8' : '#ff9b9b';
-        status.style.background = '#111';
-        status.style.padding = '14px';
-        status.style.borderRadius = '8px';
-        status.style.marginTop = '18px';
-        status.style.textAlign = 'center';
-        status.textContent = message;
+        status.style.borderColor = success
+          ? 'rgba(126, 226, 168, 0.4)'
+          : 'rgba(255, 155, 155, 0.4)';
 
+        status.textContent = message;
         status.scrollIntoView({
           behavior: 'smooth',
           block: 'center'
         });
       }
+
+      function showOrderCelebration(order) {
+        document.getElementById('confirm-meal').textContent =
+          order.meal;
+
+        document.getElementById('confirm-spice').textContent =
+          order.spice;
+
+        document.getElementById('confirm-quantity').textContent =
+          order.quantity;
+
+        document.getElementById('confirm-type').textContent =
+          order.type;
+
+        document.getElementById('confirm-customer').textContent =
+          order.customer;
+
+        confirmationOverlay.classList.add('active');
+        confirmationOverlay.setAttribute('aria-hidden', 'false');
+
+        document.body.classList.add('modal-open');
+
+        document.getElementById('confirmation-close').focus();
+
+        // Gold confetti celebration.
+        for (let i = 0; i < 65; i++) {
+          const piece = document.createElement('span');
+
+          piece.className = 'gold-confetti';
+
+          piece.style.left = Math.random() * 100 + 'vw';
+
+          piece.style.animationDuration =
+            (2.5 + Math.random() * 2.5) + 's';
+
+          piece.style.animationDelay =
+            (Math.random() * 1.2) + 's';
+
+          piece.style.transform =
+            'rotate(' + Math.random() * 360 + 'deg)';
+
+          document.body.appendChild(piece);
+
+          setTimeout(function () {
+            piece.remove();
+          }, 6500);
+        }
+      }
+
+      function closeOrderCelebration() {
+        confirmationOverlay.classList.remove('active');
+        confirmationOverlay.setAttribute('aria-hidden', 'true');
+
+        document.body.classList.remove('modal-open');
+
+        submitButton.focus();
+      }
+
+      document.getElementById('confirmation-close')
+        .addEventListener('click', closeOrderCelebration);
+
+      document.getElementById('confirmation-continue')
+        .addEventListener('click', function () {
+          window.location.href = './index.html#menu';
+        });
+
+      confirmationOverlay.addEventListener('click', function (event) {
+        if (event.target === confirmationOverlay) {
+          closeOrderCelebration();
+        }
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (
+          event.key === 'Escape' &&
+          confirmationOverlay.classList.contains('active')
+        ) {
+          closeOrderCelebration();
+        }
+      });
 
       form.addEventListener('change', function () {
         updateAddressField();
@@ -676,6 +1099,7 @@
           quantity.setCustomValidity(
             'Enter a whole number between 1 and 99.'
           );
+
           quantity.reportValidity();
           quantity.setCustomValidity('');
           return;
@@ -684,22 +1108,44 @@
         const orderType = selectedValue('order-type');
         const spiceLevel = selectedValue('spice-level');
 
+        // Preserve the order details for the confirmation popup.
+        const orderForConfirmation = {
+          meal: base.value + ' + ' + protein.value +
+            (side.value ? ' + ' + side.value : ''),
+          spice: spiceLevel,
+          quantity: String(count),
+          type: orderType,
+          customer: customerName.value.trim()
+        };
+
         const formData = new FormData(form);
 
         formData.set('_subject', 'New Savouré Custom Order');
+
         formData.set('Food Type', foodType.value);
         formData.set('Base / Main', base.value);
         formData.set('Protein', protein.value);
         formData.set('Side', side.value || 'None');
         formData.set('Spice Level', spiceLevel);
         formData.set('Quantity', String(count));
-        formData.set('Customer Name', customerName.value.trim());
-        formData.set('Customer Phone', customerPhone.value.trim());
+
+        formData.set(
+          'Customer Name',
+          customerName.value.trim()
+        );
+
+        formData.set(
+          'Customer Phone',
+          customerPhone.value.trim()
+        );
+
         formData.set('Order Type', orderType);
 
         formData.set(
           'Delivery Address',
-          orderType === 'Delivery' ? address.value.trim() : 'Pickup'
+          orderType === 'Delivery'
+            ? address.value.trim()
+            : 'Pickup'
         );
 
         formData.set(
@@ -713,10 +1159,11 @@
         );
 
         isSubmitting = true;
+
         submitButton.disabled = true;
         submitButton.textContent = 'Submitting Order...';
 
-        showStatus('Submitting your order. Please wait...', true);
+        showStatus('Submitting your order securely...', true);
 
         try {
           const response = await fetch(FORMSPREE_ENDPOINT, {
@@ -750,19 +1197,24 @@
             throw new Error(message);
           }
 
+          // Only celebrate after Formspree accepts the submission.
+          const oldStatus = document.getElementById('form-status');
+
+          if (oldStatus) {
+            oldStatus.remove();
+          }
+
           form.reset();
+
           updateAddressField();
           updateSummary();
 
-          showStatus(
-            'Thank you for choosing Savouré! Your custom order has been submitted successfully. We will review your request and confirm the price and availability.',
-            true
-          );
+          showOrderCelebration(orderForConfirmation);
 
         } catch (error) {
           showStatus(
             error.message ||
-            'We could not submit your order. Please check your internet connection and try again.',
+            'Something went wrong. Please check your internet connection and try again.',
             false
           );
 
