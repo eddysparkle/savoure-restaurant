@@ -2100,3 +2100,19 @@ main > section:first-child > h3 {
 
 
 
+
+
+
+
+
+
+
+
+/* Remove only the gold line beside A Taste of Africa */
+#home .section-label::after {
+  display: none !important;
+}
+
+
+
+
