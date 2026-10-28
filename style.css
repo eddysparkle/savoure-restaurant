@@ -2088,3 +2088,15 @@ main > section:first-child > h3 {
 
 
 
+
+
+
+/* Remove the gold line beside the hero text */
+#home .hero-label::before,
+#home .hero-label::after {
+  display: none !important;
+  content: none !important;
+}
+
+
+
