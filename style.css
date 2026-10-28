@@ -2016,3 +2016,75 @@ main > section:first-child > h3 {
 
 
 
+
+/* SAVOURÉ — MAKE ALL MENU CARDS THE SAME SIZE */
+
+#menu .menu-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 30px !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+#menu .menu-grid > .menu-card {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    min-height: 580px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+#menu .menu-grid > .menu-card > img {
+    width: 100% !important;
+    height: 240px !important;
+    min-height: 240px !important;
+    flex-shrink: 0 !important;
+    object-fit: cover !important;
+}
+
+#menu .menu-grid > .menu-card > .menu-overlay {
+    display: flex !important;
+    flex: 1 !important;
+    width: 100% !important;
+}
+
+#menu .menu-grid > .menu-card .menu-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    flex: 1 !important;
+    box-sizing: border-box !important;
+}
+
+@media (max-width: 900px) {
+    #menu .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    #menu .menu-grid {
+        grid-template-columns: 1fr !important;
+        gap: 25px !important;
+    }
+
+    #menu .menu-grid > .menu-card {
+        min-height: 0 !important;
+    }
+
+    #menu .menu-grid > .menu-card > img {
+        height: 230px !important;
+        min-height: 230px !important;
+    }
+}
+
+
+
+
