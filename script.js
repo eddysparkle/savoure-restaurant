@@ -279,3 +279,80 @@ function renderSavoureCart() {
 
   cartTotal.textContent = `$${total.toFixed(2)}`;
 }
+
+
+
+
+
+
+
+
+
+
+// =========================
+// SAVOURÉ WHATSAPP CHECKOUT
+// =========================
+
+function checkoutSavoureCart() {
+  // Savouré's WhatsApp number, including Nigeria's country code.
+  const WHATSAPP_NUMBER = "2349022812745";
+
+  // Find the checkout button.
+  const checkoutButton = document.getElementById("savoure-checkout");
+
+  // Prevent checkout when the cart is empty.
+  if (!savoureCart || savoureCart.length === 0) {
+    alert("Your cart is empty! Please add a delicious meal first.");
+    return;
+  }
+
+  // Calculate the total.
+  let total = 0;
+
+  let message = "✨ *SAVOURÉ — NEW ORDER* ✨\n";
+  message += "━━━━━━━━━━━━━━━━━━\n\n";
+  message += "Hello Savouré! I'd like to place an order.\n\n";
+  message += "*MY ORDER:*\n";
+
+  savoureCart.forEach(function (item, index) {
+    const subtotal = item.price * item.quantity;
+    total += subtotal;
+
+    message +=
+      `${index + 1}. ${item.name}\n` +
+      `   Quantity: ${item.quantity}\n` +
+      `   Price: $${item.price.toFixed(2)} each\n` +
+      `   Subtotal: $${subtotal.toFixed(2)}\n\n`;
+  });
+
+  message += "━━━━━━━━━━━━━━━━━━\n";
+  message += `*TOTAL: $${total.toFixed(2)}*\n\n`;
+  message += "Please confirm availability and the next steps. Thank you! 💛";
+
+  // Create the WhatsApp chat link.
+  const whatsappURL =
+    "https://wa.me/" +
+    WHATSAPP_NUMBER +
+    "?text=" +
+    encodeURIComponent(message);
+
+  // Open WhatsApp in a new tab.
+  const whatsappWindow = window.open(
+    whatsappURL,
+    "_blank",
+    "noopener,noreferrer"
+  );
+
+  // If the browser blocks the new tab, show a clickable fallback.
+  if (!whatsappWindow) {
+    window.location.href = whatsappURL;
+  }
+}
+
+
+
+
+
+
+
+
