@@ -1,207 +1,672 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-
-  
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Savouré | Luxury African Dining in Dubai</title>
-  <meta name="description" content="Savouré is a luxury restaurant in Dubai bringing African flavors and modern culinary elegance. Order jollof, suya, plantain & prawns, or build a custom meal.">
+  <title>Custom Order | Savouré Luxury African Dining</title>
+  <meta name="description" content="Create your perfect African meal with Savouré. Customize your base, protein, sides, spice level and delivery preferences.">
 
-  <!-- Open Graph (looks good when shared) -->
-  <meta property="og:title" content="Savouré | Luxury Dining in Dubai">
-  <meta property="og:description" content="Where African flavors meet elegance. Explore our menu and order online.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://eddysparkle.github.io/savoure-restaurant/">
-  <meta property="og:image" content="https://images.pexels.com/photos/9143471/pexels-photo-9143471.jpeg">
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Favicon (simple emoji-style until you add a real icon file) -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./style.css">
+
+  <style>
+    :root {
+      --custom-gold: #d4af37;
+      --custom-bg: #101010;
+      --custom-panel: #191919;
+      --custom-text: #f5f1e8;
+      --custom-muted: #b8b2a5;
+      --custom-border: rgba(212, 175, 55, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--custom-bg);
+      color: var(--custom-text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    .custom-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 6%;
+      border-bottom: 1px solid var(--custom-border);
+      background: #0b0b0b;
+    }
+
+    .custom-logo {
+      color: var(--custom-gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      color: var(--custom-text);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .back-link:hover {
+      color: var(--custom-gold);
+    }
+
+    .custom-hero {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 55px 20px 30px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: var(--custom-gold);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .custom-hero h1,
+    .form-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+    }
+
+    .custom-hero h1 {
+      margin: 8px 0 12px;
+      font-size: clamp(2.5rem, 7vw, 4rem);
+      line-height: 1.1;
+    }
+
+    .custom-hero p:last-child {
+      max-width: 590px;
+      margin: 0 auto;
+      color: var(--custom-muted);
+    }
+
+    .custom-container {
+      width: min(100% - 32px, 760px);
+      margin: 0 auto 70px;
+    }
+
+    .custom-panel {
+      padding: clamp(20px, 5vw, 38px);
+      border: 1px solid var(--custom-border);
+      border-radius: 16px;
+      background: var(--custom-panel);
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-heading {
+      margin: 0 0 5px;
+      font-size: 2rem;
+    }
+
+    .form-intro {
+      margin: 0 0 28px;
+      color: var(--custom-muted);
+      font-size: 0.9rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .field {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field-full {
+      grid-column: 1 / -1;
+    }
+
+    .field label,
+    .group-label {
+      color: var(--custom-text);
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-width: 0;
+      padding: 13px 14px;
+      border: 1px solid #454139;
+      border-radius: 8px;
+      outline: none;
+      background: #101010;
+      color: var(--custom-text);
+      font: inherit;
+      font-size: 0.92rem;
+    }
+
+    .field input,
+    .field select {
+      min-height: 49px;
+    }
+
+    .field textarea {
+      min-height: 105px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--custom-gold);
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.12);
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #8f8a80;
+    }
+
+    .option-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .choice {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 13px;
+      border: 1px solid #454139;
+      border-radius: 8px;
+      color: var(--custom-text);
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .choice:has(input:checked) {
+      border-color: var(--custom-gold);
+      background: rgba(212, 175, 55, 0.08);
+    }
+
+    .choice input {
+      accent-color: var(--custom-gold);
+    }
+
+    .order-summary {
+      margin-top: 26px;
+      padding: 20px;
+      border: 1px solid var(--custom-border);
+      border-radius: 10px;
+      background: #111;
+    }
+
+    .order-summary h3 {
+      margin: 0 0 8px;
+      color: var(--custom-gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+    }
+
+    .order-summary p {
+      margin: 5px 0;
+      color: var(--custom-muted);
+      font-size: 0.9rem;
+    }
+
+    .summary-item {
+      color: var(--custom-text) !important;
+      overflow-wrap: anywhere;
+    }
+
+    .summary-price {
+      margin-top: 12px !important;
+      color: var(--custom-gold) !important;
+      font-weight: 700;
+    }
+
+    .order-button {
+      display: block;
+      width: 100%;
+      margin-top: 22px;
+      padding: 15px 18px;
+      border: none;
+      border-radius: 8px;
+      background: var(--custom-gold);
+      color: #111;
+      font: inherit;
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .order-button:hover {
+      background: #e7c85c;
+      transform: translateY(-1px);
+    }
+
+    .whatsapp-button {
+      background: #25d366;
+      color: #062b13;
+    }
+
+    .whatsapp-button:hover {
+      background: #45e47e;
+    }
+
+    .button-note {
+      margin: 12px 0 0;
+      color: var(--custom-muted);
+      font-size: 0.78rem;
+      text-align: center;
+    }
+
+    .custom-footer {
+      padding: 25px 15px;
+      border-top: 1px solid var(--custom-border);
+      color: var(--custom-muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .custom-footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 560px) {
+      .custom-header {
+        padding: 15px 16px;
+      }
+
+      .custom-logo {
+        font-size: 1.8rem;
+      }
+
+      .back-link {
+        font-size: 0.78rem;
+      }
+
+      .custom-hero {
+        padding: 42px 18px 25px;
+      }
+
+      .custom-container {
+        width: calc(100% - 24px);
+      }
+
+      .custom-panel {
+        padding: 20px 16px;
+      }
+
+      .form-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+      }
+
+      .field-full {
+        grid-column: auto;
+      }
+
+      .option-group {
+        gap: 8px;
+      }
+
+      .choice {
+        padding: 9px 11px;
+      }
+    }
+  </style>
 </head>
 
-
-
-  
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <header>
-    <a href="index.html">
-      <h1>savouré</h1>
-    </a>
-    <a href="index.html#menu">← Back to Menu</a>
+  <header class="custom-header">
+    <a class="custom-logo" href="./index.html">Savouré</a>
+    <a class="back-link" href="./index.html#menu">← Back to Menu</a>
   </header>
 
-  <!-- ================= MAIN ================= -->
   <main>
-
-    <!-- Intro Section -->
-    <section>
-      <p>CREATE YOUR OWN</p>
-      <h2>Custom Order</h2>
+    <section class="custom-hero">
+      <p class="eyebrow">Create Your Own</p>
+      <h1>Your Meal, Your Way</h1>
       <p>
-        Create a meal designed exactly the way you like it.
-        Choose your base, protein, sides, and spice level.
+        Build a meal that suits your taste. Choose your base, protein,
+        sides and spice level, then send your order directly to Savouré.
       </p>
     </section>
 
-    <!-- Build Your Meal Form -->
-    <section>
-      <h2>Build Your Meal</h2>
+    <div class="custom-container">
+      <section class="custom-panel">
+        <h2 class="form-heading">Build Your Meal</h2>
+        <p class="form-intro">
+          Complete the details below. Your order will open in WhatsApp for confirmation.
+        </p>
 
-      <form>
+        <form id="custom-order-form">
 
-        <!-- Food Type -->
-        <label for="food-type">Food Type</label>
-        <select id="food-type" name="food-type" required>
-          <option value="">Choose a food type</option>
-          <option value="Main Course">Main Course</option>
-          <option value="Seafood">Seafood</option>
-          <option value="Grill">Grill</option>
-          <option value="Rice Dish">Rice Dish</option>
-          <option value="Pasta">Pasta</option>
-        </select>
+          <div class="form-grid">
 
-        <!-- Base -->
-        <label for="base">Base / Main</label>
-        <select id="base" name="base" required>
-          <option value="">Choose your base</option>
-          <option value="Jollof Rice">Jollof Rice</option>
-          <option value="Fried Rice">Fried Rice</option>
-          <option value="White Rice">White Rice</option>
-          <option value="Fried Plantain">Fried Plantain</option>
-          <option value="Pasta">Pasta</option>
-        </select>
+            <div class="field">
+              <label for="food-type">Food Type *</label>
+              <select id="food-type" name="food-type" required>
+                <option value="">Choose a food type</option>
+                <option>Main Course</option>
+                <option>Seafood</option>
+                <option>Grill</option>
+                <option>Rice Dish</option>
+                <option>Pasta</option>
+              </select>
+            </div>
 
-        <!-- Protein -->
-        <label for="protein">Protein</label>
-        <select id="protein" name="protein" required>
-          <option value="">Choose your protein</option>
-          <option value="Grilled Chicken">Grilled Chicken</option>
-          <option value="Suya Steak">Suya Steak</option>
-          <option value="Prawns">Prawns</option>
-          <option value="Grilled Fish">Grilled Fish</option>
-        </select>
+            <div class="field">
+              <label for="base">Base / Main *</label>
+              <select id="base" name="base" required>
+                <option value="">Choose your base</option>
+                <option>Jollof Rice</option>
+                <option>Fried Rice</option>
+                <option>White Rice</option>
+                <option>Fried Plantain</option>
+                <option>Pasta</option>
+              </select>
+            </div>
 
-        <!-- Side -->
-        <label for="side">Side</label>
-        <select id="side" name="side">
-          <option value="">Choose a side</option>
-          <option value="Plantain">Plantain</option>
-          <option value="Fries">Fries</option>
-          <option value="Vegetables">Vegetables</option>
-          <option value="Salad">Salad</option>
-        </select>
+            <div class="field">
+              <label for="protein">Protein *</label>
+              <select id="protein" name="protein" required>
+                <option value="">Choose your protein</option>
+                <option>Grilled Chicken</option>
+                <option>Suya Steak</option>
+                <option>Prawns</option>
+                <option>Grilled Fish</option>
+              </select>
+            </div>
 
-        <!-- Spice Level -->
-        <p>Spice Level</p>
-        <label>
-          <input type="radio" name="spice-level" value="Mild" checked>
-          Mild
-        </label>
-        <label>
-          <input type="radio" name="spice-level" value="Medium">
-          Medium
-        </label>
-        <label>
-          <input type="radio" name="spice-level" value="Hot">
-          Hot
-        </label>
+            <div class="field">
+              <label for="side">Side</label>
+              <select id="side" name="side">
+                <option value="">No side</option>
+                <option>Plantain</option>
+                <option>Fries</option>
+                <option>Vegetables</option>
+                <option>Salad</option>
+              </select>
+            </div>
 
-        <!-- Quantity -->
-        <label for="quantity">Quantity</label>
-        <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+            <div class="field field-full">
+              <span class="group-label">Spice Level</span>
+              <div class="option-group">
+                <label class="choice">
+                  <input type="radio" name="spice-level" value="Mild" checked>
+                  Mild
+                </label>
+                <label class="choice">
+                  <input type="radio" name="spice-level" value="Medium">
+                  Medium
+                </label>
+                <label class="choice">
+                  <input type="radio" name="spice-level" value="Hot">
+                  Hot
+                </label>
+              </div>
+            </div>
 
-        <!-- Customer Name -->
-        <label for="customer-name">Your Name</label>
-        <input type="text" id="customer-name" name="customer-name" required>
+            <div class="field">
+              <label for="quantity">Quantity *</label>
+              <input
+                type="number"
+                id="quantity"
+                name="quantity"
+                value="1"
+                min="1"
+                max="99"
+                step="1"
+                required
+              >
+            </div>
 
-        <!-- Phone -->
-        <label for="customer-phone">Phone Number</label>
-        <input type="tel" id="customer-phone" name="customer-phone" required>
+            <div class="field">
+              <label for="customer-name">Your Name *</label>
+              <input
+                type="text"
+                id="customer-name"
+                name="customer-name"
+                placeholder="Enter your name"
+                autocomplete="name"
+                required
+              >
+            </div>
 
-        <!-- Order Type -->
-        <p>Order Type</p>
-        <label>
-          <input type="radio" name="order-type" value="delivery" checked>
-          Delivery
-        </label>
-        <label>
-          <input type="radio" name="order-type" value="pickup">
-          Pickup
-        </label>
+            <div class="field field-full">
+              <label for="customer-phone">Phone Number *</label>
+              <input
+                type="tel"
+                id="customer-phone"
+                name="customer-phone"
+                placeholder="Enter your contact number"
+                autocomplete="tel"
+                required
+              >
+            </div>
 
-        <!-- Address -->
-        <label for="address">Delivery Address</label>
-        <textarea id="address" name="address" placeholder="Enter your delivery address" required></textarea>
+            <div class="field field-full">
+              <span class="group-label">Order Type *</span>
+              <div class="option-group">
+                <label class="choice">
+                  <input type="radio" name="order-type" value="Delivery" checked>
+                  Delivery
+                </label>
+                <label class="choice">
+                  <input type="radio" name="order-type" value="Pickup">
+                  Pickup
+                </label>
+              </div>
+            </div>
 
-        <!-- Special Requests -->
-        <label for="special-request">Special Requests</label>
-        <textarea id="special-request" name="special-request" placeholder="Tell us how you'd like your meal prepared..."></textarea>
+            <div class="field field-full" id="address-field">
+              <label for="address">Delivery Address *</label>
+              <textarea
+                id="address"
+                name="address"
+                placeholder="Enter your complete delivery address"
+                autocomplete="street-address"
+                required
+              ></textarea>
+            </div>
 
-        <!-- Allergies -->
-        <label for="allergies">Allergies / Dietary Notes</label>
-        <textarea id="allergies" name="allergies" placeholder="Let us know about any allergies or dietary requirements..."></textarea>
+            <div class="field field-full">
+              <label for="special-request">Special Requests</label>
+              <textarea
+                id="special-request"
+                name="special-request"
+                placeholder="Any special preparation instructions?"
+              ></textarea>
+            </div>
 
-        <!-- Order Summary -->
-        <div>
-          <h3>Order Summary</h3>
-          <p>Your custom meal will be reviewed by Savouré.</p>
-          <p><strong>Price: To be confirmed</strong></p>
-        </div>
+            <div class="field field-full">
+              <label for="allergies">Allergies / Dietary Notes</label>
+              <textarea
+                id="allergies"
+                name="allergies"
+                placeholder="Tell us about allergies or dietary requirements"
+              ></textarea>
+            </div>
 
-        <!-- Submit Button -->
-        <button type="submit">Submit Custom Order</button>
+          </div>
 
-      </form>
-    </section>
+          <div class="order-summary" aria-live="polite">
+            <h3>Order Summary</h3>
+            <p class="summary-item" id="summary-meal">
+              Select your base and protein to preview your meal.
+            </p>
+            <p id="summary-quantity">Quantity: 1</p>
+            <p id="summary-order-type">Order type: Delivery</p>
+            <p class="summary-price">
+              Price: To be confirmed by Savouré
+            </p>
+            <p>
+              The final price, delivery fee and availability will be confirmed
+              directly with you before your order is accepted.
+            </p>
+          </div>
 
+          <button class="order-button whatsapp-button" type="submit">
+            Order via WhatsApp
+          </button>
+
+          <p class="button-note">
+            Your order details will open in WhatsApp. Review the message and
+            tap Send to submit your order.
+          </p>
+
+        </form>
+      </section>
+    </div>
   </main>
 
-
-
-
-
-
-
-  <!-- Floating WhatsApp Button -->
-<a
-  href="https://wa.me/9022812745?text=Hi%20Savouré%2C%20I%27d%20like%20to%20place%20an%20order"
-  class="whatsapp-float"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Chat with us on WhatsApp"
->
-  <svg viewBox="0 0 32 32" width="28" height="28" fill="currentColor" aria-hidden="true">
-    <path d="M16.1 3C9.2 3 3.5 8.7 3.5 15.6c0 2.2.6 4.3 1.7 6.1L3 29l7.5-2c1.7.9 3.6 1.4 5.6 1.4 6.9 0 12.6-5.7 12.6-12.6S23 3 16.1 3zm0 22.9c-1.8 0-3.5-.5-5-1.3l-.4-.2-4.4 1.2 1.2-4.3-.2-.4c-1-1.6-1.5-3.4-1.5-5.3 0-5.6 4.6-10.2 10.2-10.2S26.3 10 26.3 15.6 21.7 25.9 16.1 25.9zm5.6-7.6c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.2.2 2 3.1 4.9 4.3 1.7.7 2.4.8 3.3.7.5-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4 0-.1-.3-.2-.6-.4z"/>
-  </svg>
-</a>
-
-  
-
-
-
-
-
-
-
-
-  
-  <!-- ================= FOOTER ================= -->
-  <footer>
+  <footer class="custom-footer">
     <p>&copy; 2026 Savouré. All rights reserved.</p>
   </footer>
 
-  <script src="./script.js"></script>
+  <script>
+    (function () {
+      const form = document.getElementById('custom-order-form');
+      const quantityInput = document.getElementById('quantity');
+      const baseSelect = document.getElementById('base');
+      const proteinSelect = document.getElementById('protein');
+      const sideSelect = document.getElementById('side');
+      const addressField = document.getElementById('address-field');
+      const addressInput = document.getElementById('address');
+
+      const summaryMeal = document.getElementById('summary-meal');
+      const summaryQuantity = document.getElementById('summary-quantity');
+      const summaryOrderType = document.getElementById('summary-order-type');
+
+      // WhatsApp number in international format, without the plus sign.
+      const WHATSAPP_NUMBER = '2349022812745';
+
+      function getOrderType() {
+        const selected = document.querySelector('input[name="order-type"]:checked');
+        return selected ? selected.value : 'Delivery';
+      }
+
+      function updateAddressRequirement() {
+        const isDelivery = getOrderType() === 'Delivery';
+
+        addressInput.required = isDelivery;
+        addressField.style.display = isDelivery ? 'flex' : 'none';
+
+        if (!isDelivery) {
+          addressInput.value = '';
+        }
+      }
+
+      function updateSummary() {
+        const base = baseSelect.value;
+        const protein = proteinSelect.value;
+        const side = sideSelect.value;
+        const quantity = Math.max(1, Number(quantityInput.value) || 1);
+
+        if (base && protein) {
+          summaryMeal.textContent =
+            'Your meal: ' + base + ' with ' + protein +
+            (side ? ' and ' + side : '');
+        } else {
+          summaryMeal.textContent =
+            'Select your base and protein to preview your meal.';
+        }
+
+        summaryQuantity.textContent = 'Quantity: ' + quantity;
+        summaryOrderType.textContent = 'Order type: ' + getOrderType();
+      }
+
+      form.addEventListener('change', function () {
+        updateAddressRequirement();
+        updateSummary();
+      });
+
+      quantityInput.addEventListener('input', updateSummary);
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        if (!form.reportValidity()) {
+          return;
+        }
+
+        const foodType = document.getElementById('food-type').value;
+        const base = baseSelect.value;
+        const protein = proteinSelect.value;
+        const side = sideSelect.value || 'None';
+        const spice = document.querySelector('input[name="spice-level"]:checked').value;
+        const quantity = Math.max(1, Number(quantityInput.value) || 1);
+        const customerName = document.getElementById('customer-name').value.trim();
+        const customerPhone = document.getElementById('customer-phone').value.trim();
+        const orderType = getOrderType();
+        const address = orderType === 'Delivery'
+          ? addressInput.value.trim()
+          : 'Pickup selected';
+
+        const specialRequest =
+          document.getElementById('special-request').value.trim() || 'None';
+        const allergies =
+          document.getElementById('allergies').value.trim() || 'None';
+
+        const message = [
+          'Hello Savouré! I would like to place a custom order.',
+          '',
+          'CUSTOM MEAL ORDER',
+          'Food type: ' + foodType,
+          'Base / Main: ' + base,
+          'Protein: ' + protein,
+          'Side: ' + side,
+          'Spice level: ' + spice,
+          'Quantity: ' + quantity,
+          '',
+          'CUSTOMER DETAILS',
+          'Name: ' + customerName,
+          'Phone: ' + customerPhone,
+          'Order type: ' + orderType,
+          'Address: ' + address,
+          '',
+          'Special requests: ' + specialRequest,
+          'Allergies / dietary notes: ' + allergies,
+          '',
+          'Please confirm availability, total price and any delivery fee before processing my order.'
+        ].join('\n');
+
+        const whatsappURL =
+          'https://wa.me/' + WHATSAPP_NUMBER +
+          '?text=' + encodeURIComponent(message);
+
+        window.open(whatsappURL, '_blank', 'noopener,noreferrer');
+      });
+
+      document.querySelectorAll('input[name="order-type"]').forEach(function (radio) {
+        radio.addEventListener('change', updateAddressRequirement);
+      });
+
+      updateAddressRequirement();
+      updateSummary();
+    })();
+  </script>
+
 </body>
 </html>
