@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Custom Order | Savouré Luxury African Dining</title>
-  <meta name="description" content="Create your perfect African meal with Savouré. Customize your base, protein, sides, spice level and delivery preferences.">
+  <title>Custom Order | Savouré</title>
+  <meta name="description" content="Create your own custom African meal with Savouré. Choose your base, protein, sides and spice level.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,12 +15,12 @@
 
   <style>
     :root {
-      --custom-gold: #d4af37;
-      --custom-bg: #101010;
-      --custom-panel: #191919;
-      --custom-text: #f5f1e8;
-      --custom-muted: #b8b2a5;
-      --custom-border: rgba(212, 175, 55, 0.3);
+      --gold: #d4af37;
+      --bg: #101010;
+      --panel: #191919;
+      --text: #f5f1e8;
+      --muted: #b8b2a5;
+      --border: rgba(212, 175, 55, 0.3);
     }
 
     * {
@@ -29,8 +29,8 @@
 
     body {
       margin: 0;
-      background: var(--custom-bg);
-      color: var(--custom-text);
+      background: var(--bg);
+      color: var(--text);
       font-family: 'Inter', sans-serif;
       line-height: 1.6;
     }
@@ -41,38 +41,37 @@
       justify-content: space-between;
       gap: 16px;
       padding: 18px 6%;
-      border-bottom: 1px solid var(--custom-border);
       background: #0b0b0b;
+      border-bottom: 1px solid var(--border);
     }
 
     .custom-logo {
-      color: var(--custom-gold);
+      color: var(--gold);
       font-family: 'Cormorant Garamond', serif;
       font-size: 2.2rem;
       font-weight: 700;
       text-decoration: none;
-      letter-spacing: 1px;
     }
 
     .back-link {
-      color: var(--custom-text);
+      color: var(--text);
       text-decoration: none;
       font-size: 0.9rem;
     }
 
     .back-link:hover {
-      color: var(--custom-gold);
+      color: var(--gold);
     }
 
     .custom-hero {
       max-width: 850px;
-      margin: 0 auto;
+      margin: auto;
       padding: 55px 20px 30px;
       text-align: center;
     }
 
     .eyebrow {
-      color: var(--custom-gold);
+      color: var(--gold);
       font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 4px;
@@ -93,8 +92,8 @@
 
     .custom-hero p:last-child {
       max-width: 590px;
-      margin: 0 auto;
-      color: var(--custom-muted);
+      margin: auto;
+      color: var(--muted);
     }
 
     .custom-container {
@@ -104,9 +103,9 @@
 
     .custom-panel {
       padding: clamp(20px, 5vw, 38px);
-      border: 1px solid var(--custom-border);
+      border: 1px solid var(--border);
       border-radius: 16px;
-      background: var(--custom-panel);
+      background: var(--panel);
       box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
     }
 
@@ -117,7 +116,7 @@
 
     .form-intro {
       margin: 0 0 28px;
-      color: var(--custom-muted);
+      color: var(--muted);
       font-size: 0.9rem;
     }
 
@@ -140,7 +139,7 @@
 
     .field label,
     .group-label {
-      color: var(--custom-text);
+      color: var(--text);
       font-size: 0.88rem;
       font-weight: 600;
     }
@@ -148,14 +147,16 @@
     .field input,
     .field select,
     .field textarea {
+      display: block;
       width: 100%;
       min-width: 0;
+      margin: 0;
       padding: 13px 14px;
       border: 1px solid #454139;
       border-radius: 8px;
       outline: none;
       background: #101010;
-      color: var(--custom-text);
+      color: var(--text);
       font: inherit;
       font-size: 0.92rem;
     }
@@ -173,7 +174,7 @@
     .field input:focus,
     .field select:focus,
     .field textarea:focus {
-      border-color: var(--custom-gold);
+      border-color: var(--gold);
       box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.12);
     }
 
@@ -196,60 +197,57 @@
       padding: 10px 13px;
       border: 1px solid #454139;
       border-radius: 8px;
-      color: var(--custom-text);
+      color: var(--text);
       cursor: pointer;
       font-size: 0.9rem;
     }
 
-    .choice:has(input:checked) {
-      border-color: var(--custom-gold);
-      background: rgba(212, 175, 55, 0.08);
+    .choice input {
+      accent-color: var(--gold);
     }
 
-    .choice input {
-      accent-color: var(--custom-gold);
+    .choice:has(input:checked) {
+      border-color: var(--gold);
+      background: rgba(212, 175, 55, 0.08);
     }
 
     .order-summary {
       margin-top: 26px;
       padding: 20px;
-      border: 1px solid var(--custom-border);
+      border: 1px solid var(--border);
       border-radius: 10px;
       background: #111;
     }
 
     .order-summary h3 {
       margin: 0 0 8px;
-      color: var(--custom-gold);
+      color: var(--gold);
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.6rem;
     }
 
     .order-summary p {
       margin: 5px 0;
-      color: var(--custom-muted);
+      color: var(--muted);
       font-size: 0.9rem;
-    }
-
-    .summary-item {
-      color: var(--custom-text) !important;
       overflow-wrap: anywhere;
     }
 
-    .summary-price {
-      margin-top: 12px !important;
-      color: var(--custom-gold) !important;
+    .order-summary .summary-price {
+      margin-top: 12px;
+      color: var(--gold);
       font-weight: 700;
     }
 
-    .order-button {
+    .submit-button {
       display: block;
       width: 100%;
+      min-height: 52px;
       margin-top: 22px;
       padding: 15px 18px;
       border: none;
       border-radius: 8px;
-      background: var(--custom-gold);
+      background: var(--gold);
       color: #111;
       font: inherit;
       font-weight: 700;
@@ -258,31 +256,22 @@
       transition: background 0.2s, transform 0.2s;
     }
 
-    .order-button:hover {
+    .submit-button:hover {
       background: #e7c85c;
       transform: translateY(-1px);
     }
 
-    .whatsapp-button {
-      background: #25d366;
-      color: #062b13;
-    }
-
-    .whatsapp-button:hover {
-      background: #45e47e;
-    }
-
     .button-note {
       margin: 12px 0 0;
-      color: var(--custom-muted);
+      color: var(--muted);
       font-size: 0.78rem;
       text-align: center;
     }
 
     .custom-footer {
       padding: 25px 15px;
-      border-top: 1px solid var(--custom-border);
-      color: var(--custom-muted);
+      border-top: 1px solid var(--border);
+      color: var(--muted);
       font-size: 0.85rem;
       text-align: center;
     }
@@ -346,18 +335,19 @@
   <main>
     <section class="custom-hero">
       <p class="eyebrow">Create Your Own</p>
-      <h1>Your Meal, Your Way</h1>
+      <h1>Custom Order</h1>
       <p>
-        Build a meal that suits your taste. Choose your base, protein,
-        sides and spice level, then send your order directly to Savouré.
+        Create a meal designed exactly the way you like it.
+        Choose your base, protein, sides and spice level.
       </p>
     </section>
 
     <div class="custom-container">
       <section class="custom-panel">
+
         <h2 class="form-heading">Build Your Meal</h2>
         <p class="form-intro">
-          Complete the details below. Your order will open in WhatsApp for confirmation.
+          Complete the form below to submit your custom meal order.
         </p>
 
         <form id="custom-order-form">
@@ -368,11 +358,11 @@
               <label for="food-type">Food Type *</label>
               <select id="food-type" name="food-type" required>
                 <option value="">Choose a food type</option>
-                <option>Main Course</option>
-                <option>Seafood</option>
-                <option>Grill</option>
-                <option>Rice Dish</option>
-                <option>Pasta</option>
+                <option value="Main Course">Main Course</option>
+                <option value="Seafood">Seafood</option>
+                <option value="Grill">Grill</option>
+                <option value="Rice Dish">Rice Dish</option>
+                <option value="Pasta">Pasta</option>
               </select>
             </div>
 
@@ -380,11 +370,11 @@
               <label for="base">Base / Main *</label>
               <select id="base" name="base" required>
                 <option value="">Choose your base</option>
-                <option>Jollof Rice</option>
-                <option>Fried Rice</option>
-                <option>White Rice</option>
-                <option>Fried Plantain</option>
-                <option>Pasta</option>
+                <option value="Jollof Rice">Jollof Rice</option>
+                <option value="Fried Rice">Fried Rice</option>
+                <option value="White Rice">White Rice</option>
+                <option value="Fried Plantain">Fried Plantain</option>
+                <option value="Pasta">Pasta</option>
               </select>
             </div>
 
@@ -392,10 +382,10 @@
               <label for="protein">Protein *</label>
               <select id="protein" name="protein" required>
                 <option value="">Choose your protein</option>
-                <option>Grilled Chicken</option>
-                <option>Suya Steak</option>
-                <option>Prawns</option>
-                <option>Grilled Fish</option>
+                <option value="Grilled Chicken">Grilled Chicken</option>
+                <option value="Suya Steak">Suya Steak</option>
+                <option value="Prawns">Prawns</option>
+                <option value="Grilled Fish">Grilled Fish</option>
               </select>
             </div>
 
@@ -403,10 +393,10 @@
               <label for="side">Side</label>
               <select id="side" name="side">
                 <option value="">No side</option>
-                <option>Plantain</option>
-                <option>Fries</option>
-                <option>Vegetables</option>
-                <option>Salad</option>
+                <option value="Plantain">Plantain</option>
+                <option value="Fries">Fries</option>
+                <option value="Vegetables">Vegetables</option>
+                <option value="Salad">Salad</option>
               </select>
             </div>
 
@@ -417,10 +407,12 @@
                   <input type="radio" name="spice-level" value="Mild" checked>
                   Mild
                 </label>
+
                 <label class="choice">
                   <input type="radio" name="spice-level" value="Medium">
                   Medium
                 </label>
+
                 <label class="choice">
                   <input type="radio" name="spice-level" value="Hot">
                   Hot
@@ -468,13 +460,24 @@
 
             <div class="field field-full">
               <span class="group-label">Order Type *</span>
+
               <div class="option-group">
                 <label class="choice">
-                  <input type="radio" name="order-type" value="Delivery" checked>
+                  <input
+                    type="radio"
+                    name="order-type"
+                    value="Delivery"
+                    checked
+                  >
                   Delivery
                 </label>
+
                 <label class="choice">
-                  <input type="radio" name="order-type" value="Pickup">
+                  <input
+                    type="radio"
+                    name="order-type"
+                    value="Pickup"
+                  >
                   Pickup
                 </label>
               </div>
@@ -496,7 +499,7 @@
               <textarea
                 id="special-request"
                 name="special-request"
-                placeholder="Any special preparation instructions?"
+                placeholder="Tell us how you would like your meal prepared..."
               ></textarea>
             </div>
 
@@ -505,7 +508,7 @@
               <textarea
                 id="allergies"
                 name="allergies"
-                placeholder="Tell us about allergies or dietary requirements"
+                placeholder="Enter any allergies or dietary requirements..."
               ></textarea>
             </div>
 
@@ -513,27 +516,31 @@
 
           <div class="order-summary" aria-live="polite">
             <h3>Order Summary</h3>
-            <p class="summary-item" id="summary-meal">
+
+            <p id="summary-meal">
               Select your base and protein to preview your meal.
             </p>
+
             <p id="summary-quantity">Quantity: 1</p>
             <p id="summary-order-type">Order type: Delivery</p>
+
             <p class="summary-price">
               Price: To be confirmed by Savouré
             </p>
+
             <p>
-              The final price, delivery fee and availability will be confirmed
-              directly with you before your order is accepted.
+              Your final meal price and any delivery fee will be confirmed
+              before your order is accepted.
             </p>
           </div>
 
-          <button class="order-button whatsapp-button" type="submit">
-            Order via WhatsApp
+          <!-- The button keeps the original Submit Custom Order label -->
+          <button class="submit-button" type="submit">
+            Submit Custom Order
           </button>
 
           <p class="button-note">
-            Your order details will open in WhatsApp. Review the message and
-            tap Send to submit your order.
+            Your completed order will open in WhatsApp for you to review and send.
           </p>
 
         </form>
@@ -548,61 +555,67 @@
   <script>
     (function () {
       const form = document.getElementById('custom-order-form');
-      const quantityInput = document.getElementById('quantity');
-      const baseSelect = document.getElementById('base');
-      const proteinSelect = document.getElementById('protein');
-      const sideSelect = document.getElementById('side');
+
+      const foodType = document.getElementById('food-type');
+      const base = document.getElementById('base');
+      const protein = document.getElementById('protein');
+      const side = document.getElementById('side');
+      const quantity = document.getElementById('quantity');
+
+      const customerName = document.getElementById('customer-name');
+      const customerPhone = document.getElementById('customer-phone');
+
       const addressField = document.getElementById('address-field');
-      const addressInput = document.getElementById('address');
+      const address = document.getElementById('address');
 
       const summaryMeal = document.getElementById('summary-meal');
       const summaryQuantity = document.getElementById('summary-quantity');
       const summaryOrderType = document.getElementById('summary-order-type');
 
-      // WhatsApp number in international format, without the plus sign.
       const WHATSAPP_NUMBER = '2349022812745';
 
-      function getOrderType() {
-        const selected = document.querySelector('input[name="order-type"]:checked');
-        return selected ? selected.value : 'Delivery';
+      function selectedValue(name) {
+        const selected = document.querySelector(
+          'input[name="' + name + '"]:checked'
+        );
+
+        return selected ? selected.value : '';
       }
 
-      function updateAddressRequirement() {
-        const isDelivery = getOrderType() === 'Delivery';
+      function updateAddressField() {
+        const isDelivery = selectedValue('order-type') === 'Delivery';
 
-        addressInput.required = isDelivery;
         addressField.style.display = isDelivery ? 'flex' : 'none';
+        address.required = isDelivery;
 
         if (!isDelivery) {
-          addressInput.value = '';
+          address.value = '';
         }
       }
 
       function updateSummary() {
-        const base = baseSelect.value;
-        const protein = proteinSelect.value;
-        const side = sideSelect.value;
-        const quantity = Math.max(1, Number(quantityInput.value) || 1);
+        const mealQuantity = Number(quantity.value) || 1;
 
-        if (base && protein) {
+        if (base.value && protein.value) {
           summaryMeal.textContent =
-            'Your meal: ' + base + ' with ' + protein +
-            (side ? ' and ' + side : '');
+            'Meal: ' + base.value + ' + ' + protein.value +
+            (side.value ? ' + ' + side.value : '');
         } else {
           summaryMeal.textContent =
             'Select your base and protein to preview your meal.';
         }
 
-        summaryQuantity.textContent = 'Quantity: ' + quantity;
-        summaryOrderType.textContent = 'Order type: ' + getOrderType();
+        summaryQuantity.textContent = 'Quantity: ' + mealQuantity;
+        summaryOrderType.textContent =
+          'Order type: ' + selectedValue('order-type');
       }
 
       form.addEventListener('change', function () {
-        updateAddressRequirement();
+        updateAddressField();
         updateSummary();
       });
 
-      quantityInput.addEventListener('input', updateSummary);
+      quantity.addEventListener('input', updateSummary);
 
       form.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -611,59 +624,72 @@
           return;
         }
 
-        const foodType = document.getElementById('food-type').value;
-        const base = baseSelect.value;
-        const protein = proteinSelect.value;
-        const side = sideSelect.value || 'None';
-        const spice = document.querySelector('input[name="spice-level"]:checked').value;
-        const quantity = Math.max(1, Number(quantityInput.value) || 1);
-        const customerName = document.getElementById('customer-name').value.trim();
-        const customerPhone = document.getElementById('customer-phone').value.trim();
-        const orderType = getOrderType();
-        const address = orderType === 'Delivery'
-          ? addressInput.value.trim()
-          : 'Pickup selected';
+        const mealQuantity = Number(quantity.value);
+
+        if (
+          !Number.isInteger(mealQuantity) ||
+          mealQuantity < 1 ||
+          mealQuantity > 99
+        ) {
+          quantity.setCustomValidity('Enter a whole number between 1 and 99.');
+          quantity.reportValidity();
+          quantity.setCustomValidity('');
+          return;
+        }
+
+        const orderType = selectedValue('order-type');
+        const spiceLevel = selectedValue('spice-level');
 
         const specialRequest =
           document.getElementById('special-request').value.trim() || 'None';
+
         const allergies =
           document.getElementById('allergies').value.trim() || 'None';
 
+        const deliveryAddress =
+          orderType === 'Delivery'
+            ? address.value.trim()
+            : 'Pickup selected';
+
         const message = [
-          'Hello Savouré! I would like to place a custom order.',
+          'Hello Savouré! I would like to submit a custom order.',
           '',
-          'CUSTOM MEAL ORDER',
-          'Food type: ' + foodType,
-          'Base / Main: ' + base,
-          'Protein: ' + protein,
-          'Side: ' + side,
-          'Spice level: ' + spice,
-          'Quantity: ' + quantity,
+          'CUSTOM ORDER DETAILS',
+          'Food type: ' + foodType.value,
+          'Base / Main: ' + base.value,
+          'Protein: ' + protein.value,
+          'Side: ' + (side.value || 'None'),
+          'Spice level: ' + spiceLevel,
+          'Quantity: ' + mealQuantity,
           '',
           'CUSTOMER DETAILS',
-          'Name: ' + customerName,
-          'Phone: ' + customerPhone,
+          'Name: ' + customerName.value.trim(),
+          'Phone: ' + customerPhone.value.trim(),
           'Order type: ' + orderType,
-          'Address: ' + address,
+          'Delivery address: ' + deliveryAddress,
           '',
           'Special requests: ' + specialRequest,
           'Allergies / dietary notes: ' + allergies,
           '',
-          'Please confirm availability, total price and any delivery fee before processing my order.'
+          'Please confirm the final price, availability and delivery fee before processing my order.'
         ].join('\n');
 
         const whatsappURL =
           'https://wa.me/' + WHATSAPP_NUMBER +
           '?text=' + encodeURIComponent(message);
 
-        window.open(whatsappURL, '_blank', 'noopener,noreferrer');
+        const whatsappWindow = window.open(
+          whatsappURL,
+          '_blank',
+          'noopener,noreferrer'
+        );
+
+        if (!whatsappWindow) {
+          window.location.href = whatsappURL;
+        }
       });
 
-      document.querySelectorAll('input[name="order-type"]').forEach(function (radio) {
-        radio.addEventListener('change', updateAddressRequirement);
-      });
-
-      updateAddressRequirement();
+      updateAddressField();
       updateSummary();
     })();
   </script>
