@@ -261,11 +261,26 @@
       transform: translateY(-1px);
     }
 
+    .submit-button:disabled {
+      opacity: 0.65;
+      cursor: wait;
+      transform: none;
+    }
+
     .button-note {
       margin: 12px 0 0;
       color: var(--muted);
       font-size: 0.78rem;
       text-align: center;
+    }
+
+    #form-status {
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 8px;
+      background: #111;
+      text-align: center;
+      overflow-wrap: anywhere;
     }
 
     .custom-footer {
@@ -534,13 +549,13 @@
             </p>
           </div>
 
-          <!-- The button keeps the original Submit Custom Order label -->
           <button class="submit-button" type="submit">
             Submit Custom Order
           </button>
 
           <p class="button-note">
-            Your completed order will open in WhatsApp for you to review and send.
+            Your order will be submitted securely to Savouré through our order form.
+            Thank you for choosing us!
           </p>
 
         </form>
@@ -556,6 +571,8 @@
     (function () {
       const form = document.getElementById('custom-order-form');
 
+      if (!form) return;
+
       const foodType = document.getElementById('food-type');
       const base = document.getElementById('base');
       const protein = document.getElementById('protein');
@@ -565,17 +582,21 @@
       const customerName = document.getElementById('customer-name');
       const customerPhone = document.getElementById('customer-phone');
 
-      const addressField = document.getElementById('address-field');
       const address = document.getElementById('address');
+      const addressField = document.getElementById('address-field');
 
       const summaryMeal = document.getElementById('summary-meal');
       const summaryQuantity = document.getElementById('summary-quantity');
       const summaryOrderType = document.getElementById('summary-order-type');
 
-      const WHATSAPP_NUMBER = '2349022812745';
+      const submitButton = form.querySelector('button[type="submit"]');
+
+      const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xvzqappg';
+
+      let isSubmitting = false;
 
       function selectedValue(name) {
-        const selected = document.querySelector(
+        const selected = form.querySelector(
           'input[name="' + name + '"]:checked'
         );
 
@@ -594,7 +615,7 @@
       }
 
       function updateSummary() {
-        const mealQuantity = Number(quantity.value) || 1;
+        const count = Number(quantity.value) || 1;
 
         if (base.value && protein.value) {
           summaryMeal.textContent =
@@ -605,9 +626,34 @@
             'Select your base and protein to preview your meal.';
         }
 
-        summaryQuantity.textContent = 'Quantity: ' + mealQuantity;
+        summaryQuantity.textContent = 'Quantity: ' + count;
         summaryOrderType.textContent =
           'Order type: ' + selectedValue('order-type');
+      }
+
+      function showStatus(message, success) {
+        let status = document.getElementById('form-status');
+
+        if (!status) {
+          status = document.createElement('p');
+          status.id = 'form-status';
+          status.setAttribute('role', 'status');
+          status.setAttribute('aria-live', 'polite');
+          form.appendChild(status);
+        }
+
+        status.style.color = success ? '#7ee2a8' : '#ff9b9b';
+        status.style.background = '#111';
+        status.style.padding = '14px';
+        status.style.borderRadius = '8px';
+        status.style.marginTop = '18px';
+        status.style.textAlign = 'center';
+        status.textContent = message;
+
+        status.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
       }
 
       form.addEventListener('change', function () {
@@ -615,205 +661,122 @@
         updateSummary();
       });
 
+      quantity.addEventListener('input', updateSummary);
 
+      form.addEventListener('submit', async function (event) {
+        event.preventDefault();
 
-<script>
-(function () {
-  const form = document.getElementById('custom-order-form');
+        if (isSubmitting) return;
 
-  const foodType = document.getElementById('food-type');
-  const base = document.getElementById('base');
-  const protein = document.getElementById('protein');
-  const side = document.getElementById('side');
-  const quantity = document.getElementById('quantity');
+        if (!form.reportValidity()) return;
 
-  const customerName = document.getElementById('customer-name');
-  const customerPhone = document.getElementById('customer-phone');
-  const address = document.getElementById('address');
-  const addressField = document.getElementById('address-field');
+        const count = Number(quantity.value);
 
-  const summaryMeal = document.getElementById('summary-meal');
-  const summaryQuantity = document.getElementById('summary-quantity');
-  const summaryOrderType = document.getElementById('summary-order-type');
-
-  const submitButton = form.querySelector('button[type="submit"]');
-
-  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xvzqappg';
-
-  function selectedValue(name) {
-    const selected = document.querySelector(
-      'input[name="' + name + '"]:checked'
-    );
-
-    return selected ? selected.value : '';
-  }
-
-  function updateAddressField() {
-    const isDelivery = selectedValue('order-type') === 'Delivery';
-
-    addressField.style.display = isDelivery ? 'flex' : 'none';
-    address.required = isDelivery;
-
-    if (!isDelivery) {
-      address.value = '';
-    }
-  }
-
-  function updateSummary() {
-    const count = Number(quantity.value) || 1;
-
-    summaryMeal.textContent = base.value && protein.value
-      ? 'Meal: ' + base.value + ' + ' + protein.value +
-        (side.value ? ' + ' + side.value : '')
-      : 'Select your base and protein to preview your meal.';
-
-    summaryQuantity.textContent = 'Quantity: ' + count;
-    summaryOrderType.textContent =
-      'Order type: ' + selectedValue('order-type');
-  }
-
-  form.addEventListener('change', function () {
-    updateAddressField();
-    updateSummary();
-  });
-
-  quantity.addEventListener('input', updateSummary);
-
-  form.addEventListener('submit', async function (event) {
-    event.preventDefault();
-
-    if (!form.reportValidity()) {
-      return;
-    }
-
-    const count = Number(quantity.value);
-
-    if (!Number.isInteger(count) || count < 1 || count > 99) {
-      quantity.setCustomValidity(
-        'Please enter a whole number between 1 and 99.'
-      );
-      quantity.reportValidity();
-      quantity.setCustomValidity('');
-      return;
-    }
-
-    const orderType = selectedValue('order-type');
-    const spiceLevel = selectedValue('spice-level');
-
-    const formData = new FormData(form);
-
-    // Add clear details to the Formspree submission.
-    formData.set('_subject', 'New Savouré Custom Order');
-    formData.set('Order Type', orderType);
-    formData.set('Food Type', foodType.value);
-    formData.set('Base / Main', base.value);
-    formData.set('Protein', protein.value);
-    formData.set('Side', side.value || 'None');
-    formData.set('Spice Level', spiceLevel);
-    formData.set('Quantity', String(count));
-    formData.set('Customer Name', customerName.value.trim());
-    formData.set('Customer Phone', customerPhone.value.trim());
-    formData.set(
-      'Delivery Address',
-      orderType === 'Delivery' ? address.value.trim() : 'Pickup'
-    );
-
-    formData.set(
-      'Special Requests',
-      document.getElementById('special-request').value.trim() || 'None'
-    );
-
-    formData.set(
-      'Allergies / Dietary Notes',
-      document.getElementById('allergies').value.trim() || 'None'
-    );
-
-    submitButton.disabled = true;
-    submitButton.textContent = 'Submitting Order...';
-
-    let status = document.getElementById('form-status');
-
-    if (!status) {
-      status = document.createElement('p');
-      status.id = 'form-status';
-      status.setAttribute('role', 'status');
-      status.setAttribute('aria-live', 'polite');
-      status.style.marginTop = '16px';
-      status.style.textAlign = 'center';
-      form.appendChild(status);
-    }
-
-    status.style.color = '#d4af37';
-    status.textContent = 'Sending your order...';
-
-    try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
+        if (!Number.isInteger(count) || count < 1 || count > 99) {
+          quantity.setCustomValidity(
+            'Enter a whole number between 1 and 99.'
+          );
+          quantity.reportValidity();
+          quantity.setCustomValidity('');
+          return;
         }
-      });
 
-      if (!response.ok) {
-        let errorMessage = 'Unable to submit your order. Please try again.';
+        const orderType = selectedValue('order-type');
+        const spiceLevel = selectedValue('spice-level');
+
+        const formData = new FormData(form);
+
+        formData.set('_subject', 'New Savouré Custom Order');
+        formData.set('Food Type', foodType.value);
+        formData.set('Base / Main', base.value);
+        formData.set('Protein', protein.value);
+        formData.set('Side', side.value || 'None');
+        formData.set('Spice Level', spiceLevel);
+        formData.set('Quantity', String(count));
+        formData.set('Customer Name', customerName.value.trim());
+        formData.set('Customer Phone', customerPhone.value.trim());
+        formData.set('Order Type', orderType);
+
+        formData.set(
+          'Delivery Address',
+          orderType === 'Delivery' ? address.value.trim() : 'Pickup'
+        );
+
+        formData.set(
+          'Special Requests',
+          document.getElementById('special-request').value.trim() || 'None'
+        );
+
+        formData.set(
+          'Allergies / Dietary Notes',
+          document.getElementById('allergies').value.trim() || 'None'
+        );
+
+        isSubmitting = true;
+        submitButton.disabled = true;
+        submitButton.textContent = 'Submitting Order...';
+
+        showStatus('Submitting your order. Please wait...', true);
 
         try {
-          const result = await response.json();
+          const response = await fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              Accept: 'application/json'
+            }
+          });
 
-          if (result.errors && result.errors.length) {
-            errorMessage = result.errors
-              .map(function (error) {
-                return error.message;
-              })
-              .join(' ');
+          let result = {};
+
+          try {
+            result = await response.json();
+          } catch (error) {
+            // Handle a response without JSON.
           }
+
+          if (!response.ok || result.ok === false) {
+            let message =
+              'We could not submit your order. Please try again.';
+
+            if (result.errors && result.errors.length) {
+              message = result.errors
+                .map(function (item) {
+                  return item.message;
+                })
+                .join(' ');
+            }
+
+            throw new Error(message);
+          }
+
+          form.reset();
+          updateAddressField();
+          updateSummary();
+
+          showStatus(
+            'Thank you for choosing Savouré! Your custom order has been submitted successfully. We will review your request and confirm the price and availability.',
+            true
+          );
+
         } catch (error) {
-          // Keep the default error message if no JSON response is available.
+          showStatus(
+            error.message ||
+            'We could not submit your order. Please check your internet connection and try again.',
+            false
+          );
+
+        } finally {
+          isSubmitting = false;
+          submitButton.disabled = false;
+          submitButton.textContent = 'Submit Custom Order';
         }
-
-        throw new Error(errorMessage);
-      }
-
-      form.reset();
-      updateAddressField();
-      updateSummary();
-
-      status.textContent =
-        'Thank you! Your custom order has been submitted successfully. Savouré will review your request and confirm the price and availability.';
-
-      status.style.color = '#7ee2a8';
-
-      form.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
       });
 
-    } catch (error) {
-      status.style.color = '#ff9b9b';
-      status.textContent =
-        error.message ||
-        'Something went wrong. Please check your internet connection and try again.';
-    } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = 'Submit Custom Order';
-    }
-  });
+      updateAddressField();
+      updateSummary();
+    })();
+  </script>
 
-  updateAddressField();
-  updateSummary();
-})();
-</script>
-
-
-
-
-
-
-
-
-
-
-    
 </body>
 </html>
